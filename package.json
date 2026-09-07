@@ -1,0 +1,21 @@
+{
+  "name": "aprendiendo-programacion",
+  "version": "1.0.0",
+  "description": "Repo donde vuelvo a aprender a programar, con Claude como profesor. No es un repo para producir software rápido: es para que yo entienda lo que escribo.",
+  "main": "index.js",
+  "type": "module",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Beltru/Aprendiendo-programacion.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Beltru/Aprendiendo-programacion/issues"
+  },
+  "homepage": "https://github.com/Beltru/Aprendiendo-programacion#readme"
+}

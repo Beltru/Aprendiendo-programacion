@@ -67,6 +67,29 @@ Cuando son muchas ramas sobre una misma variable:
       default:
         // ...
     }
+## Comparar y combinar condiciones
+
+Comparar: `===` igual, `!==` distinto, `>` `<` `>=` `<=`.
+
+Combinar:
+
+    a && b     // Y   — verdadero solo si las dos
+    a || b     // O   — verdadero si al menos una
+    !a         // NO  — da vuelta el resultado
+
+Y un uso de `||` que vas a ver mucho y **no parece una condición**:
+
+    const x = algoQuePuedeFaltar || "valor por defecto"
+
+Se lee: *"usá lo de la izquierda; si eso no sirve, usá lo de la derecha."*
+
+En JS "no sirve" significa exactamente estos seis: `undefined`, `null`, `""`,
+`0`, `NaN`, `false`. Ojo con `0` y `""`: son valores legítimos y `||` igual los
+descarta. Si te importa distinguirlos, existe `??`, que solo reemplaza cuando el
+valor es `undefined` o `null`:
+
+    const x = algoQuePuedeFaltar ?? "valor por defecto"
+
 
 ## Funciones
 
