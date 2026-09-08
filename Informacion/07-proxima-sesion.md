@@ -2,50 +2,65 @@
 
 > Se reescribe entero al final de cada sesión. Es la foto de dónde estamos.
 
-**Última actualización:** 2026-09-03 (fin de la sesión 1)
+**Última actualización:** 2026-09-07 (fin de la sesión 2)
 
 ## Dónde estamos
 
-Rumbo definido y repo estructurado. **Todavía no se escribió una sola línea de código.**
-Beltrán tuvo que irse; dejó todo armado justamente para arrancar directo la próxima.
+**Ya escribió su primer programa, y funciona.** `Asistente/asistente.js` reconoce
+`agregar` y `listar`, y avisa qué comandos existen cuando le mandás cualquier otra cosa.
+
+Pasos **1.A, 1.B, 1.C.1 y 1.C.2 cerrados**. Falta **1.C.3**.
+
+Revisión completa en `Clases/01-primer-programa/REVISION.md`.
 
 ## Cómo arrancar la próxima sesión
 
-**No repasar todo esto en voz alta.** Retomá como quien sigue una charla de ayer:
+**No repasar todo esto en voz alta.** Retomá donde quedó, con la pregunta que ya está
+sobre la mesa:
 
-> "La Clase 1 te espera. Empezás por el paso 1.A. ¿Arrancamos?"
+> "Quedaste en 1.C.3: que `agregar` guarde el texto de verdad. ¿En qué posición de
+> `process.argv` cae `"comprar leche"`?"
 
-Y que abra `Clases/01-primer-programa/ENUNCIADO.md`. Está todo ahí, partido en pasos.
+## Paso 1.C.3 — lo que falta
 
-## Clase 1 — asignada, sin empezar
+    node Asistente/asistente.js agregar "comprar leche"   → guarda la tarea
+    node Asistente/asistente.js listar                    → las muestra numeradas
 
-`Clases/01-primer-programa/ENUNCIADO.md`. Tres pasos:
+Dos cosas nuevas: **de dónde sale el texto** (posición 3 — que lo deduzca él, ya
+entiende cómo funciona el índice) y **dónde se guarda** (arrays: crear, `push`,
+recorrer). La sección "Listas (arrays)" de `Referencia/01-js-lo-minimo.md` ya lo cubre.
 
-- **1.A** — `npm init -y`, `"type": "module"`, crear `Asistente/asistente.js` que
-  imprima algo, y correrlo.
-- **1.B** — imprimir los argumentos de la línea de comandos.
-  **Que lo busque él** (`process.argv` NO está en `Referencia/`, es a propósito).
-- **1.C** — comandos `agregar` y `listar`, más el aviso cuando el comando no existe.
+Y después, **la pregunta que define la Clase 2**: al correr `listar` después de
+`agregar`, ¿la tarea sigue ahí? Que lo piense antes de probarlo. **No contestársela
+jamás** — el descubrimiento es el puente a la persistencia.
 
-Dos preguntas para cuando entregue: qué son los dos primeros argumentos, y si la
-tarea sobrevive entre una corrida y otra. **La segunda no se contesta** — que la
-descubra corriendo el programa. Ese descubrimiento es la bisagra hacia la Clase 2
-(persistencia).
+## Cómo enseñarle — calibrado en la sesión 2
 
-## Calibración importante
+Esto es lo más importante de este archivo. Leerlo antes de empezar.
 
-Beltrán avisó que **la sintaxis le cuesta mucho y está casi de cero** con eso.
+1. **Explicá para qué sirve algo ANTES de cómo se usa.** El peor momento de la sesión 2
+   fue por haber dado por sabido qué es una terminal y qué es Node. Se frustró y con
+   razón. Si aparece una herramienta nueva, primero: *¿qué problema resuelve?*
+   El piso conceptual está en `Referencia/02-la-terminal-y-node.md`.
+2. **Ante cada traba, separar:** *¿no sabés qué querés que pase, o no sabés cómo se
+   escribe?* Esto funcionó todas las veces. Lo primero se piensa (sin atajo); lo
+   segundo va a `Referencia/`, y si falta, **se amplía `Referencia/`** con la forma
+   genérica — nunca con su caso.
+3. **Pasos chiquitos, con un "listo cuando" verificable.** Cuando algo le sale grande,
+   partilo en tres. Lo hace y avanza.
+4. **Que verifique corriendo, no que le crean.** Los mejores momentos fueron cuando
+   corrió el programa y **vio** el problema (el silencio ante `manteca`, la lista de
+   cuatro elementos). Eso vale más que cualquier explicación.
+5. **Cuando llega a la lógica correcta en palabras, decíselo.** Le cambia el ánimo y es
+   verdad: ahí ya no está perdido, solo le falta sintaxis.
+6. **Frustración: nombrarla, no consolarla.** Dijo *"me enoja no tener ni idea de lo
+   que quiero hacer"*. Sirvió explicarle que esa es exactamente la parte atrofiada que
+   vinimos a entrenar, y que le duela significa que la está usando.
 
-- Pasos chicos, con un "listo cuando" verificable. Nada de enunciados grandes.
-- Ante una traba, preguntar primero: **¿es sintaxis, o no sabés qué querés que pase?**
-  Sintaxis → `Referencia/`. Lo segundo → ahí hay que pensar, sin atajo.
-- Si necesita sintaxis nueva, **ampliá `Referencia/`** en vez de escribirle el código.
-  Formas genéricas, nunca su caso concreto.
+## Para repreguntar sin aviso
 
-## Al terminar
-
-Crear `Clases/01-primer-programa/REVISION.md` cuando entregue, y actualizar
-`05-bitacora.md`, `06-conceptos.md` y este archivo.
+Está la lista en `06-conceptos.md`. La más urgente: **por qué conviene una constante
+en vez de un texto suelto** — la contestó mal (dijo que era por velocidad).
 
 ## Recordatorio
 

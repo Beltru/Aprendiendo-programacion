@@ -3,6 +3,62 @@
 Orden cronológico. La entrada más nueva va **arriba**.
 
 ---
+## 2026-09-06/07 — Sesión 2: la visión Jarvis y el primer código propio
+
+**Qué pasó**
+
+Arrancó contando **qué asistente quiere**: un Jarvis. Que le recuerde cosas, le diga
+qué tareas tiene, le organice los repos y ponga agentes de Claude a trabajar en código
+automáticamente. Quedó registrado en `04-proyecto-asistente.md`, junto con la división
+que ahora ordena el proyecto: **reactivo → proactivo → autónomo**, y la advertencia de
+no saltar a lo espectacular antes de tener estado, errores y permisos.
+
+Después, la primera sesión de código real. **Escribió su primer programa.**
+
+**Lo que hizo**
+
+- Cerró **1.A** (`npm init -y`, `"type": "module"`, archivo que imprime).
+- Cerró **1.B**: buscó `process.argv` en Google como decía el enunciado, imprimió la
+  lista completa, y **entendió por qué su palabra cae en la posición 2**.
+- Cerró **1.C.1 y 1.C.2**: cadena `if / else if / else` con los cuatro casos cubiertos.
+- Queda **1.C.3** (guardar y listar tareas de verdad).
+
+Detalle completo en `Clases/01-primer-programa/REVISION.md`.
+
+**Lo que se aprendió sobre cómo enseñarle** ← lo más importante de esta entrada
+
+A mitad de sesión dijo, textual: *"no entiendo qué es lo que querés que logre hacer, no
+sé por qué usamos eso de node Asistente/asistente.js, no entiendo para qué sirve, no
+entiendo por qué usamos process.argv (...) no sé correr cosas en consolas"*.
+
+**El error fue mío: arranqué explicando por la mitad.** Di por sabido qué es una
+terminal, qué es Node, y por qué un programa de consola necesita `argv`. Él nunca lo
+había visto. La frustración no vino del ejercicio: vino de no tener el piso.
+
+Se escribió `Referencia/02-la-terminal-y-node.md` con todo eso desde cero. **Antes de
+introducir cualquier herramienta nueva, explicar primero por qué existe y qué problema
+resuelve.** El "para qué sirve" va antes que el "cómo se usa", siempre.
+
+También apareció, textual: *"no me quiero empezar a frustrar, pero me enoja no tener ni
+idea de lo que quiero hacer"*. Sirvió nombrarlo: esa es exactamente la parte atrofiada
+que vinimos a entrenar, y que le moleste significa que la está usando. **No minimizar
+la frustración ni consolar de más: explicarle qué músculo le duele y por qué.**
+
+Y funcionó separar, cada vez que se trababa: *¿es que no sabés qué querés que pase, o
+que no sabés cómo se escribe?* Hacia el final él mismo llegó a decir la lógica correcta
+en palabras antes de saber escribirla. Ahí la traba ya era solo sintaxis → `Referencia/`.
+
+**Cambios en el repo**
+
+- `04-proyecto-asistente.md`: la visión Jarvis, los tres escalones, las etapas 9–11.
+- `Referencia/02-la-terminal-y-node.md`: **nuevo**. Terminal, Node, `node archivo.js`,
+  por qué consola y no web, y por qué existe `process.argv`. Es el piso.
+- `Referencia/01-js-lo-minimo.md`: sección nueva **"Comparar y combinar condiciones"**
+  (`&&`, `||`, `!`, el `||` como valor por defecto, y `??`). Creía que `||` era "and".
+- `Clases/01-primer-programa/REVISION.md`: **nuevo**.
+
+---
+
 
 ## 2026-09-03 — Sesión 1 (cont.): estructura del repo
 
