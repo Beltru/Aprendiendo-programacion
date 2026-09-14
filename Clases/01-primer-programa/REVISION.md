@@ -60,3 +60,23 @@ Vale registrarlos: son el material de repaso.
   escrita a mano dentro del mensaje del `else`. Se le señaló y se le dijo
   explícitamente que no lo tocara todavía. Retomarlo cuando se hable de fuente única
   de verdad.
+
+---
+
+## Cierre — sesión 3 (2026-09-14)
+
+**Clase 1 cerrada.**
+
+- En 1.C.3 usó `tareas.push(process.argv[3])` y, sin que se le pidiera,
+  `${tareas.length}` en un template string. Bien escrito.
+- Predijo que el texto caía en la posición **4** (contó desde 1). Lo verificó
+  imprimiendo `process.argv` y corrigió a 3. Descubrió solo que **sin comillas la tarea
+  se parte en dos**.
+- **Contestó la pregunta 2 del enunciado sin que se la dieran**: al ver
+  "Se listaron 0 tareas", siguió tres pistas y dijo *"cuando vuelvo a correr el programa
+  no recuerda lo que había la vez anterior"*.
+- **Diseñó solo la persistencia**, en palabras, con la analogía escritorio/cajón:
+  al empezar cargar lo guardado, en el medio hacer lo pedido, antes de terminar guardar
+  la lista entera. Primero olvidó el "cargar al empezar"; lo encontró simulando el caso
+  de "pagar la luz" guardado ayer.
+- Numerar `listar` se pasó a la Clase 2 (sin persistencia no tenía sentido).

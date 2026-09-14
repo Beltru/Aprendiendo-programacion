@@ -14,7 +14,7 @@ que algo lo sabe porque "ya lo vio".
 
 | Concepto | Estado | Visto en |
 |---|---|---|
-| Qué es la terminal y cómo correr un programa | flojo | Sesión 2 |
+| Qué es la terminal y cómo correr un programa — terminal vs archivo | flojo (volvió a confundirlos en sesión 3) | Sesión 2 |
 | Qué es Node y qué significa `node archivo.js` | flojo | Sesión 2 |
 | Argumentos de línea de comandos (`process.argv`) | **firme** | Clase 1 (paso 1.B) |
 | Índice desde 0: por qué su palabra cae en `[2]` | **firme** | Clase 1 (paso 1.B) |
@@ -25,12 +25,17 @@ que algo lo sabe porque "ya lo vio".
 | Errores que gritan vs errores silenciosos | flojo | Sesión 2 |
 | `const` vs `let` | flojo | Clase 1 |
 | `&&`, `\|\|`, `!` — y `\|\|` como valor por defecto | flojo | Sesión 2 |
-| Módulos ES (`import`) vs CommonJS (`require`) | pendiente | Clase 1 (paso 1.A) |
-| Arrays: crear, `push`, `length` | pendiente | Clase 1 (paso 1.C.3) |
+| `import` — traer herramientas que no vienen incluidas | flojo | Clase 2 |
+| Leer un error de Node: archivo:línea, tipo, ignorar `node:internal` | flojo | Clase 2 |
+| `fs.writeFileSync` sobreescribe entero | **firme** (lo descubrió) | Clase 2 (2.A) |
+| `fs.readFileSync` devuelve texto, no ejecuta | flojo | Clase 2 (2.C) |
+| JSON: lista → texto → lista | pendiente | Clase 2 (2.C) |
+| Archivo inexistente la primera vez (`existsSync`) | pendiente | Clase 2 (2.E) |
+| Arrays: crear, `push`, `length` | flojo | Clase 1 (paso 1.C.3) |
 | Recorrer con `for...of` y con `forEach` | pendiente | Clase 1 (paso 1.C.3) |
-| Template strings con `${}` | pendiente | Clase 1 |
+| Template strings con `${}` | flojo (lo usó solo) | Clase 1 |
 | Objetos: propiedades, leer y escribir | pendiente | Clase 1 |
-| Estado en memoria vs estado persistido | pendiente | Clase 1 (pregunta 2) |
+| Estado en memoria vs estado persistido | **firme** (lo descubrió y diseñó la solución) | Clase 1 (pregunta 2) |
 
 ## Ya contestadas (repreguntar sin aviso más adelante)
 
@@ -49,9 +54,12 @@ que algo lo sabe porque "ya lo vio".
 
 ## Preguntas abiertas
 
-- ¿Por qué al volver a correr el programa se pierde lo que habías agregado?
-  (**No contestarla nunca. Es la bisagra a la Clase 2.**)
+- ~~¿Por qué al volver a correr el programa se pierde lo que habías agregado?~~ → **Contestada sola en sesión 3.** Repreguntar: "¿dónde vive la lista mientras corre el programa?"
 - ¿Cuál es la diferencia entre `=` y `===`?
 - ¿Por qué `const` por defecto y no `let`?
 - ¿Qué pasa si escribís mal el nombre de una constante? ¿Y si escribís mal el texto?
 - ¿Por qué el `else` sin condición es mejor que agregar una rama por cada palabra?
+- ¿En qué posición de `process.argv` cae el texto de una tarea? ¿Y sin comillas?
+- ¿Qué hace `writeFileSync` si el archivo ya existe?
+- Si leés un archivo con `readFileSync`, ¿qué tipo de cosa te devuelve? ¿Qué cuenta su `length`?
+- ¿Por qué hay que cargar las tareas al empezar, y no solo guardar al terminar?

@@ -3,6 +3,44 @@
 Orden cronológico. La entrada más nueva va **arriba**.
 
 ---
+## 2026-09-14 — Sesión 3: cierre de Clase 1, diseño de la persistencia, arranque de Clase 2
+
+**Qué pasó**
+
+Volvió después de una semana. Había dejado `const tareas = []` creado.
+
+- **Cerró la Clase 1.** Hizo el `push` y descubrió solo que la tarea no sobrevive entre
+  corridas (la pregunta bisagra). Después **diseñó la persistencia en palabras**, sin
+  código: cargar al empezar, operar, guardar la lista entera al terminar.
+- **Arrancó la Clase 2** (`Clases/02-recordar-tareas/`). Hizo 2.A y 2.B, descubrió que
+  `writeFileSync` sobreescribe. Quedó a mitad del 2.C. Se fue a cenar.
+
+Detalle en los `REVISION.md` de Clase 1 (cierre) y Clase 2 (parcial).
+
+**Lo que se aprendió sobre cómo enseñarle**
+
+- **El diseño en palabras funciona muy bien.** Con escenarios concretos para simular
+  ("ayer guardaste 'pagar la luz', hoy corrés agregar...") llegó solo al diseño completo.
+  Usar esto antes de cada paso grande.
+- **Hacerlo verificar corriendo en vez de corregirle** sigue siendo lo mejor: la
+  posición 3, las comillas, la sobreescritura — todo lo encontró mirando la salida.
+- **Tiende a adelantarse y juntar pasos.** No frenarlo en seco, pero cuando eso lo
+  confunde, volver a "una cosa por vez" y explicar por qué.
+- **La confusión terminal vs archivo volvió** (escribió `import` en PowerShell).
+  No está firme. Si vuelve a pasar, repasar la tabla de los dos lugares.
+- **Los enunciados tienen que ser más literales.** Dos veces el problema fue una frase
+  ambigua mía ("en la primera línea", "a mano"). Escribir qué archivo, qué se corre y
+  qué debería verse.
+
+**Cambios en el repo**
+
+- `Clases/02-recordar-tareas/ENUNCIADO.md` y `practica/`: **nuevos**.
+- `Referencia/03-archivos-y-json.md`: **nuevo**. Para qué sirve, `import`, `fs`,
+  escribir/leer/existsSync, rutas relativas, JSON (parte 4, bloqueada hasta el 2.C).
+- `Clases/01-primer-programa/REVISION.md`: cierre. `Clases/02-recordar-tareas/REVISION.md`: parcial.
+
+---
+
 ## 2026-09-06/07 — Sesión 2: la visión Jarvis y el primer código propio
 
 **Qué pasó**
