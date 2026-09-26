@@ -34,3 +34,24 @@
   **No contestado.**
 - Correr `lista.js` y chocarse con el error de pasarle una lista a `writeFileSync`.
   Recién ahí, parte 4 de la Referencia (JSON).
+
+---
+
+## Cierre — sesión 4 (2026-09-25)
+
+**Clase 2 cerrada.** Terminó 2.C, 2.D y 2.E.
+
+- En 2.C descubrió el punto de la clase con el experimento del `length`: `texto.length`
+  daba 23 (caracteres) y `lista.length` 3 (tareas). Antes de eso escribió
+  `JSON.stringify(lista)` en una línea suelta, sin recibir el resultado — se le explicó
+  con la analogía de la carta traducida que no se agarra.
+- Errores del camino: `lista.texto` en vez de `texto.length` (le faltaba leer el punto
+  como "de"); `tareas = JSON.parse(...)` sin `const` (`tareas is not defined`);
+  reasignar una `const` (eligió pasarla a `let`).
+- En 2.E llegó solo a que hay que arrancar con lista vacía, pero creía que igual hacía
+  falta un archivo. El bug final fue de **orden**: leía el archivo antes del `if` que lo
+  creaba. Lo encontró siguiendo el programa línea por línea.
+- Las cuatro preguntas, bien. En la 4 llegó solo a que el repo debe llevar **el programa,
+  no sus datos**, y creó el `.gitignore` (primero con `\` de Windows; se le explicó que
+  Git usa `/`).
+- **Commiteó y pusheó él mismo** por primera vez: `74f64a9`.

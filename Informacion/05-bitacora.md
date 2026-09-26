@@ -3,6 +3,44 @@
 Orden cronológico. La entrada más nueva va **arriba**.
 
 ---
+## 2026-09-25 — Sesión 4: Clase 2 terminada y Clase 3 completa
+
+**Qué pasó**
+
+Sesión larga y productiva. Terminó el 2.C (descubrió que `texto.length` daba 23 y
+`lista.length` 3), hizo 2.D y 2.E, **contestó las cuatro preguntas de la Clase 2**,
+creó su `.gitignore` y **commiteó y pusheó él mismo por primera vez** (`74f64a9`).
+
+Después hizo la **Clase 3 entera**: `eliminar`, validación, objetos `{texto, hecha}` y
+`completar`. Cuatro comandos andando. Detalle en
+`Clases/03-completar-y-borrar/REVISION.md`.
+
+**Lo más importante para próximas sesiones**
+
+1. **Anidar `if` es su punto débil actual.** Tropezó tres veces en la misma sesión
+   poniendo la condición del detalle al lado de la del comando. Dijo *"es algo que nunca
+   me explicaste"* y tenía razón. Se agregó la sección al Referencia 01. Cuando algo
+   tenga dos niveles de decisión, **mapearle explícitamente qué va en cada nivel**.
+2. **No ofrecerle cortar la sesión.** Dijo textual: *"no voy a dejar nada hasta que yo
+   te diga"*. Si se marea, simplificar (una cosa por vez, menos texto), nunca sugerir parar.
+3. **Cuando se marea, el problema suele ser que le tiré tres cosas juntas.** La salida
+   que funciona: recordarle en una línea dónde está, qué ya logró, y darle **un** paso.
+4. **Probar su código en una copia aislada del scratchpad** (copiando `asistente.js`,
+   `tareas.json` y `package.json`) para no tocar sus datos y poder mostrarle la tabla de
+   qué pasa con cada caso. Eso lo destrabó varias veces.
+5. **Pedirle que prediga antes de correr** sigue siendo lo que mejor funciona.
+
+**Cambios en el repo**
+
+- `Clases/03-completar-y-borrar/`: enunciado, práctica y revisión. **Nuevos.**
+- `Referencia/04-numeros-y-listas.md`: **nuevo** (texto vs número, `NaN`, `splice`,
+  objetos, meter un objeto en una lista, ternario).
+- `Referencia/01-js-lo-minimo.md`: sección nueva **"Decidir adentro de una decisión"**.
+- `Clases/02-recordar-tareas/REVISION.md`: cierre.
+- `.gitignore`: lo creó él. `Asistente/tareas.json` no se sube.
+
+---
+
 ## 2026-09-14 — Sesión 3: cierre de Clase 1, diseño de la persistencia, arranque de Clase 2
 
 **Qué pasó**

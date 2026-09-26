@@ -60,6 +60,20 @@ se ve así, y al leerlo recuperás los objetos enteros.
 
     [{"texto":"pagar la luz","hecha":false}]
 
+
+### Meter un objeto en una lista
+
+`push` recibe **una** cosa. Si esa cosa es un objeto, va entero, con sus llaves:
+
+    lista.push({ clave: valor, otraClave: otroValor })
+
+También podés armarlo antes, ponerle nombre, y meterlo después. Hace lo mismo:
+
+    const cosa = { clave: valor, otraClave: otroValor }
+    lista.push(cosa)
+
+Los **nombres** de los datos (`clave`, `otraClave`) los escribís fijos, siempre iguales.
+Los **valores** pueden ser lo que sea: un texto, algo que venga de la terminal, `false`.
 ## 4. Elegir según una condición, en una sola línea
 
     condicion ? valorSiEsVerdad : valorSiEsMentira

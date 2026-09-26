@@ -91,6 +91,39 @@ valor es `undefined` o `null`:
     const x = algoQuePuedeFaltar ?? "valor por defecto"
 
 
+## Decidir adentro de una decisión (anidar)
+
+Adentro de una rama podés poner otro `if` entero. Eso es **anidar**.
+
+    if (condicionA) {
+        if (condicionB) {
+            // A verdadera Y B verdadera
+        } else {
+            // A verdadera, B falsa
+        }
+    } else if (condicionC) {
+        // A falsa, C verdadera
+    } else {
+        // ninguna
+    }
+
+La de afuera decide **en qué grupo estás**; la de adentro, **qué hacés dentro de ese grupo**.
+
+### Anidar no es lo mismo que `&&`
+
+    if (A && B) { ... }     // una sola pregunta: si B es falsa, NO entra
+
+    if (A) {                // dos preguntas: entra igual, y adentro decide
+        if (B) { ... } else { ... }
+    }
+
+Con `&&`, cuando `B` es falsa la rama entera se descarta y la cadena sigue buscando
+otra rama — y si ninguna coincide, cae en el `else` final, que casi nunca es lo que
+querés. Con anidado, ya entraste por `A` y adentro tenés las dos salidas cubiertas.
+
+**Regla práctica:** si podés decir *"si pasa X, y ahí adentro depende de Y"*, va anidado.
+Una condición por nivel: la de afuera para lo general, la de adentro para el detalle.
+
 ## Funciones
 
     function saludar(nombre) {

@@ -29,11 +29,21 @@ que algo lo sabe porque "ya lo vio".
 | Leer un error de Node: archivo:línea, tipo, ignorar `node:internal` | flojo | Clase 2 |
 | `fs.writeFileSync` sobreescribe entero | **firme** (lo descubrió) | Clase 2 (2.A) |
 | `fs.readFileSync` devuelve texto, no ejecuta | flojo | Clase 2 (2.C) |
-| JSON: lista → texto → lista | pendiente | Clase 2 (2.C) |
-| Archivo inexistente la primera vez (`existsSync`) | pendiente | Clase 2 (2.E) |
-| Arrays: crear, `push`, `length` | flojo | Clase 1 (paso 1.C.3) |
-| Recorrer con `for...of` y con `forEach` | pendiente | Clase 1 (paso 1.C.3) |
-| Template strings con `${}` | flojo (lo usó solo) | Clase 1 |
+| JSON: lista → texto → lista | **firme** | Clase 2 (2.C) |
+| Archivo inexistente la primera vez (`existsSync`) | **firme** | Clase 2 (2.E) |
+| Arrays: crear, `push`, `length` | **firme** | Clase 1 (paso 1.C.3) |
+| `splice` para sacar un elemento | flojo | Clase 3 (3.A) |
+| Anidar `if` dentro de `if` (afuera el comando, adentro el detalle) | flojo (tropezó 3 veces) | Clase 3 |
+| Condiciones en positivo, y por qué | flojo | Clase 3 (3.B) |
+| Todo lo que llega de la terminal es texto; `Number()` | flojo | Clase 3 (3.B) |
+| `NaN`: toda comparación con NaN da false | flojo | Clase 3 (3.B) |
+| Objetos: `{ texto, hecha }`, leer y escribir con el punto | flojo | Clase 3 (3.C) |
+| Migración de datos: el formato viejo ya guardado | **firme** | Clase 3 (3.C) |
+| Ternario `cond ? a : b` dentro de un template string | flojo | Clase 3 (3.D) |
+| Cerrar `})`: último que abre, primero que cierra | flojo | Clase 3 |
+| Código (`.js`) vs datos (`.json`), y reglas de JSON | flojo | Clase 3 (3.C) |
+| Recorrer con `forEach((t, i) => ...)` | **firme** | Clase 3 |
+| Template strings con `${}` | **firme** | Clase 1 |
 | Objetos: propiedades, leer y escribir | pendiente | Clase 1 |
 | Estado en memoria vs estado persistido | **firme** (lo descubrió y diseñó la solución) | Clase 1 (pregunta 2) |
 
@@ -63,3 +73,7 @@ que algo lo sabe porque "ya lo vio".
 - ¿Qué hace `writeFileSync` si el archivo ya existe?
 - Si leés un archivo con `readFileSync`, ¿qué tipo de cosa te devuelve? ¿Qué cuenta su `length`?
 - ¿Por qué hay que cargar las tareas al empezar, y no solo guardar al terminar?
+- ¿Por qué la validación va **adentro** de la rama del comando y no al lado?
+- ¿Qué pasa si comparás `NaN < 1`? ¿Y `NaN === NaN`?
+- ¿Por qué `"2" + 1` da `"21"`?
+- Si dos comandos comparten la misma validación, ¿qué problema hay?
