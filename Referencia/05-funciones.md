@@ -43,6 +43,57 @@ Para usarla, se la **llama** por su nombre con los datos concretos:
 Lo que pasás al llamar (`valorA`) entra en `parametro1`. **Los nombres no tienen que
 coincidir**: adentro de la función el dato se llama como dice la definición.
 
+## 2.bis Cómo se piensa una función (la receta)
+
+Ejemplo completo, de otro tema, para ver el mecanismo. **Antes**, con código repetido:
+
+    const totalA = 100 * 1.21
+    console.log(`Total: $${totalA}`)
+
+    const totalB = 250 * 1.21
+    console.log(`Total: $${totalB}`)
+
+Las dos mitades hacen lo mismo. Lo único que cambia es **el precio**: 100 y 250.
+
+**Después:**
+
+    function mostrarTotal(precio) {
+        const conIva = precio * 1.21
+        console.log(`Total: $${conIva}`)
+    }
+
+    mostrarTotal(100)
+    mostrarTotal(250)
+
+### Los cuatro pasos para convertir repetición en función
+
+1. **Copiá una de las dos repeticiones** tal cual, sin pensar todavía.
+2. **Envolvela** en `function unNombre() {` ... `}`. El nombre, un verbo que diga qué hace.
+3. **Compará las repeticiones y mirá qué es lo único distinto entre ellas.** Eso, y solo
+   eso, es el parámetro. Lo que es igual en todas queda fijo adentro.
+4. **Borrá las repeticiones** y en su lugar escribí la **llamada**.
+
+### Qué es "llamar" a una función
+
+Escribir su nombre con paréntesis, y adentro los datos concretos:
+
+    mostrarTotal(100)
+
+Cuando el programa llega a esa línea:
+
+1. salta al cuerpo de la función,
+2. `precio` vale `100` durante esa corrida,
+3. ejecuta el cuerpo de arriba a abajo,
+4. vuelve a la línea siguiente de donde saltó, y sigue.
+
+Definir una función **no la ejecuta**. Es como escribir una receta: el plato no aparece
+hasta que alguien la cocina. Se ejecuta recién cuando la llamás, y una vez por llamada.
+
+### Si no cambia nada entre las repeticiones
+
+Entonces no lleva parámetros: `function separador() { ... }` y se llama `separador()`,
+con los paréntesis vacíos. Los paréntesis van siempre, aunque no haya nada adentro.
+
 ## 3. Devolver un `true` / `false`
 
 Una función puede devolver una condición entera:
