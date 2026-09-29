@@ -77,3 +77,30 @@ que algo lo sabe porque "ya lo vio".
 - ¿Qué pasa si comparás `NaN < 1`? ¿Y `NaN === NaN`?
 - ¿Por qué `"2" + 1` da `"21"`?
 - Si dos comandos comparten la misma validación, ¿qué problema hay?
+
+## Clase 4 — funciones (sesión 5)
+
+| Concepto | Estado | Visto en |
+|---|---|---|
+| Los paréntesis son el botón: `saludar` vs `saludar()` | **firme** (lo descubrió solo) | Clase 4 (ej1) |
+| Definir una función no la ejecuta | **firme** | Clase 4 (ej1) |
+| Parámetro = hueco que se llena al llamar | flojo | Clase 4 (ej2) |
+| Los nombres de los parámetros no existen afuera | flojo (se equivocó en el asistente) | Clase 4 (ej5, 4.C) |
+| `return` entrega un valor; si no lo agarrás se pierde | flojo (**le pasó 3 veces**) | Clase 4 (ej3) |
+| Devolver una condición sin `if` adentro | **firme** | Clase 4 (ej4) |
+| Acción (sin `return`) vs respuesta (con `return`) | flojo | Clase 4 (pregunta 1) |
+| Scope: lo de adentro muere adentro | **firme** | Clase 4 (ej5) |
+| Error de borde (`<` vs `<=`) | flojo | Clase 4 (ej5) |
+| `export` / `import { }` con `./` y `.js` | flojo | Clase 4 (4.E) |
+| Cada archivo es un mundo: los `import` no se heredan | flojo | Clase 4 (4.E) |
+| Intención vs mecanismo: para qué sirve nombrar | flojo | Clase 4 (pregunta 3) |
+| Refactorizar: cambiar cómo, no qué; probar después de cada paso | flojo | Clase 4 |
+| Elegir nombres que digan qué es la cosa | flojo (**3ª conversación**) | Clases 3 y 4 |
+
+## Más preguntas para repreguntar
+
+- ¿Qué diferencia hay entre `cargarTareas` y `cargarTareas()`?
+- Si una función tiene `return` y la llamás sin guardar el resultado, ¿qué pasa?
+- ¿Por qué `estaEnRango(numero, cantidad)` en la llamada da `ReferenceError`?
+- ¿Por qué `funciones.js` necesita su propio `import fs` si `asistente.js` ya lo tenía?
+- ¿Por qué `guardar` no lleva `return` y `estaEnRango` sí?

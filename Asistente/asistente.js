@@ -1,7 +1,5 @@
-import fs from "node:fs";
+import { guardar, cargarTareas, estaEnRango } from "./funciones.js"
 
-const archivoTareas = "Asistente/tareas.json"
-const existe = fs.existsSync(archivoTareas)
 const agregar = "agregar"
 const listar = "listar"
 const eliminar = "eliminar"
@@ -9,20 +7,8 @@ const completar = "completar"
 const n = Number(process.argv[3])
 
 
-function guardar(tareas) {
-  fs.writeFileSync(archivoTareas, JSON.stringify(tareas), "utf-8")
-}
+const tareas = cargarTareas()
 
-function parametrosValidos() {
-    
-
-if (existe === false) {
-    fs.writeFileSync(archivoTareas, "[]", "utf-8")
-    console.log("Se creo el archivo tareas.json")
-}
-
-const texto = fs.readFileSync (archivoTareas, "utf-8")
-const tareas = JSON.parse(texto)
 
 if (process.argv[2] === agregar) {
      tareas.push({ texto: process.argv[3], hecha: false })
@@ -40,7 +26,7 @@ if (process.argv[2] === agregar) {
             })
          }
       }  else if (process.argv[2] === eliminar) { 
-        if (n >= 1 && n <= tareas.length && Number.isInteger(n)) {
+        if (estaEnRango(n, tareas.length)) {
             tareas.splice(n - 1, 1)
             guardar(tareas)
             console.log("Se elimino la tarea")
@@ -49,7 +35,7 @@ if (process.argv[2] === agregar) {
          }
 
       } else if (process.argv[2] === completar) { 
-        if (n >= 1 && n <= tareas.length && Number.isInteger(n)) {
+        if (estaEnRango(n, tareas.length)) {
              tareas[n - 1].hecha = true
             guardar(tareas)
             console.log("Se completo la tarea")

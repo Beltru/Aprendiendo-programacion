@@ -3,6 +3,58 @@
 Orden cronológico. La entrada más nueva va **arriba**.
 
 ---
+## 2026-09-28 — Sesión 5: Clase 4 (funciones), y el aviso más importante hasta ahora
+
+**Qué pasó**
+
+Hizo la **Clase 4 entera**: refactorizó el asistente con tres funciones y lo separó en
+dos archivos. El programa quedó haciendo exactamente lo mismo, pero `asistente.js` pasó
+a leerse como un índice. Las cuatro preguntas de cierre, bien.
+
+Pero lo importante de esta sesión es otra cosa.
+
+**El aviso: "estoy adivinando"**
+
+A mitad del refactor dijo, textual:
+
+> *"No estoy entendiendo las functions sinceramente, no las comprendo, no entiendo la
+> logica detras de las mismas, estoy adivinando que hacer, mucho me lo resuelve el
+> autocompletar."*
+
+**Esto es exactamente lo que el repo existe para evitar.** Lo que se hizo, y que es la
+receta a repetir:
+
+1. **Frenar el refactor.** El archivo de 70 líneas era demasiado grande para aprender el
+   concepto de cero.
+2. **Pedirle apagar el autocompletar de Copilot** para este repo.
+3. **Bajar a `practica/` con ejercicios mínimos de otro dominio** — cinco ejercicios de
+   tres líneas, sin tareas ni archivos ni comandos, solo funciones
+   (`Clases/04-funciones/EJERCICIOS-FUNCIONES.md`).
+4. **Volver al proyecto real después.**
+
+Funcionó: después de los cinco ejercicios pudo escribir y usar sus funciones en el
+asistente. **Cuando un concepto no entra, esta es la salida, no explicarlo otra vez más
+despacio.**
+
+**Lo que hay que vigilar**
+
+- **El valor de retorno descartado le pasó por tercera vez** (`JSON.stringify` suelto en
+  la Clase 2, dos veces; `cargarTareas()` sin `const tareas =` acá). Repreguntarlo.
+- **Anidar sigue siendo el punto débil.** Metió el `return` adentro del `if`.
+- **Tercera conversación sobre nombres** (`lista` para una ruta, `n1`/`tareas1` para
+  parámetros). La regla que se le dio: un buen nombre contesta "¿qué es esta cosa?".
+- **Probar en una copia limpia del scratchpad es indispensable**: en el 4.B reintrodujo
+  el bug del 2.E y en su máquina no se veía, porque su `tareas.json` ya existe.
+
+**Cambios en el repo**
+
+- `Clases/04-funciones/`: enunciado, ejercicios, práctica (5 archivos suyos) y revisión.
+- `Referencia/05-funciones.md`: **nuevo**, con la parte **2.bis "Cómo se piensa una
+  función (la receta)"** agregada a pedido suyo.
+- `Asistente/funciones.js`: **nuevo** (lo escribió él).
+
+---
+
 ## 2026-09-25 — Sesión 4: Clase 2 terminada y Clase 3 completa
 
 **Qué pasó**
