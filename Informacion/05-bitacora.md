@@ -3,6 +3,46 @@
 Orden cronológico. La entrada más nueva va **arriba**.
 
 ---
+## 2026-10-07 — Sesión 6: Clase 5 (tests), pasos 5.A a 5.C
+
+**Qué pasó**
+
+Eligió tests por sobre fechas y prioridades. Hizo tres pasos:
+
+- **5.A:** tests a mano con `if` y `console.log` sobre `estaEnRango`.
+- **5.B:** sacó la repetición a una función propia de comprobación.
+- **5.C:** los mismos cinco casos con `node:test` y `assert`. **Cinco en verde con
+  `node --test`.** Rompió la función a propósito y vio cuál se ponía en rojo.
+
+Faltan 5.D y 5.E. Detalle en `Clases/05-tests/REVISION.md`.
+
+**El momento que más enseñó**
+
+Escribió un test que comparaba `true === true` sin llamar nunca a la función: **pasaba
+siempre**. Se le explicó que un test así es peor que no tener test, y quedó la regla:
+*obtenido sale de ejecutar; esperado lo escribís vos*.
+
+**Patrones que se repiten y hay que tener presentes**
+
+1. **Copia la forma genérica de la Referencia literal**, sin sustituir los marcadores
+   (dejó `assert.equal(obtenido, esperado)` tal cual). Cuando se le da una forma genérica,
+   **decirle explícitamente qué va en cada hueco en su caso.**
+2. **Llaves y dónde cierra un bloque** sigue siendo su error estructural más frecuente
+   (esta vez todo el archivo quedó adentro de la función).
+3. **Orden de los argumentos**: agregó un parámetro primero en la definición y último en
+   las llamadas. Conviene mostrarle definición y llamada alineadas una debajo de la otra:
+   eso lo destrabó al toque.
+4. Las instrucciones en lista corta ("escribí los otros cuatro, con nombres que digan qué
+   caso cubre") **no le alcanzan**: pidió explícitamente qué hacer. **Darle la tabla de
+   casos** (entrada → esperado → qué debería decir el nombre) lo destrabó enseguida.
+
+**Cambios en el repo**
+
+- `Clases/05-tests/`: enunciado, práctica (`a-mano.js`, `rango.test.js`) y revisión parcial.
+- `Referencia/06-tests.md`: **nuevo**.
+
+---
+
 ## 2026-09-28 — Sesión 5: Clase 4 (funciones), y el aviso más importante hasta ahora
 
 **Qué pasó**

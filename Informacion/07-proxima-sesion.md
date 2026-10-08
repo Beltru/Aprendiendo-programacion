@@ -2,86 +2,75 @@
 
 > Se reescribe entero al final de cada sesión. Es la foto de dónde estamos.
 
-**Última actualización:** 2026-09-28 (sesión 5)
+**Última actualización:** 2026-10-07 (sesión 6)
 
 ## Dónde estamos
 
-**Clases 1 a 4 cerradas.** El asistente tiene cuatro comandos:
+**Clases 1 a 4 cerradas. Clase 5 (tests) a mitad: 5.A, 5.B y 5.C hechos.**
 
-    agregar "texto"   listar   eliminar N   completar N
+El asistente tiene cuatro comandos (`agregar`, `listar`, `eliminar N`, `completar N`),
+está partido en `Asistente/asistente.js` + `Asistente/funciones.js`, y desde esta sesión
+tiene **cinco tests en verde** sobre `estaEnRango`:
 
-Y desde la Clase 4 está partido en dos archivos: `Asistente/asistente.js` (los comandos,
-48 líneas que se leen como un índice) y `Asistente/funciones.js` (`guardar`,
-`cargarTareas`, `estaEnRango`).
-
-Revisiones en las cuatro carpetas de `Clases/`.
-
-## LO MÁS IMPORTANTE de este archivo
-
-En la sesión 5 dijo, textual:
-
-> *"estoy adivinando que hacer, mucho me lo resuelve el autocompletar"*
-
-**Ese es el problema que este repo existe para evitar.** La receta que funcionó, y que hay
-que repetir cada vez que un concepto no entre:
-
-1. **Frenar** lo que se esté haciendo en el proyecto real.
-2. **Bajar a `practica/`** con ejercicios mínimos, de tres líneas, **de otro dominio**
-   (sin tareas, sin archivos, sin comandos). Ver `Clases/04-funciones/EJERCICIOS-FUNCIONES.md`
-   como modelo: cada ejercicio con una predicción obligatoria y una lección explícita.
-3. **Volver al proyecto real** recién cuando el concepto esté.
-
-**No** explicarlo otra vez más despacio: eso ya falló dos veces antes de bajar a los
-ejercicios. Y recordarle **apagar el autocompletar** (Copilot) si vuelve a aparecer.
+    node --test
 
 ## Cómo arrancar la próxima sesión
 
-Falta escribir `Clases/05-.../ENUNCIADO.md`. El rumbo (`04-proyecto-asistente.md`, etapa 5)
-dice fechas, prioridades y filtros: `map`/`filter`/`reduce`, y el infierno de las fechas.
+> "Te quedaste en el 5.D, que es solo pensar: ¿qué pasa si querés testear `guardar`?
+> ¿Qué archivo se escribe cuando el test la llama?"
 
-Dos alternativas mejores, a elegir con él:
+**El 5.D no se contesta, se pregunta.** Tiene que ver solo que testear `guardar` le
+escribiría sus tareas de verdad. Recién después, el 5.E: pasarle la ruta por parámetro a
+`guardar` y `cargarTareas` para poder testearlas contra un archivo de prueba. Es un
+refactor, así que vale la regla de la Clase 4: probar los cuatro comandos y el caso sin
+archivo después de cada cambio.
 
-- **Tests** (etapa 6). Ya tiene el gancho natural: en la Clase 4 quedó dicho que
-  `estaEnRango` se puede probar sola. Y le daría una red de seguridad para refactors, que
-  en la Clase 4 hizo falta a mano.
-- **Fuente única de verdad + un comando nuevo** (`editar`), que es corto y consolida
-  funciones sin material nuevo.
+Ahí aparecen dos cosas nuevas: `assert.deepEqual` (porque `[1,2] === [1,2]` es `false`) y
+la idea de que **lo difícil de testear suele estar mal diseñado**.
 
-Sugerencia: preguntarle qué le sirve más para el asistente que quiere usar de verdad.
+Y un círculo para cerrar: preguntarle **por qué la herramienta de Node necesita dos cosas
+(un texto y una comparación) y la que él escribió en `a-mano.js` terminó con cinco
+parámetros.**
 
-## Cómo enseñarle — calibrado en sesiones 2 a 5
+## Cómo enseñarle — calibrado en sesiones 2 a 6
 
 1. **Para qué sirve ANTES de cómo se usa.** Sin excepción.
 2. **No ofrecerle cortar la sesión.** Él avisa. Si se marea, simplificar.
-3. **Si se marea o adivina: bajar a ejercicios mínimos en `practica/`.** (Ver arriba.)
-4. **Separar ante cada traba:** *¿no sabés qué querés que pase, o cómo se escribe?*
-5. **Que prediga antes de correr.** Es lo que mejor funciona de todo.
-6. **Probar su código en una copia limpia del scratchpad**, con los dos `.js`,
-   `tareas.json` y `package.json`. Sin eso no se ven los bugs del caso "primera vez":
-   en la sesión 5 reintrodujo el bug del 2.E y en su máquina no se notaba.
-7. **Mostrarle una tabla de qué pasa con cada caso** (comando → salida). Lo destraba.
-8. **Cuando algo tiene dos niveles de decisión, mapearle qué va en cada nivel.**
-   Anidar sigue siendo el punto débil.
-9. **Pasos mecánicos numerados** cuando la traba es "no sé qué escribir": mover tal línea,
-   agregar tal cosa. No otra explicación conceptual.
-10. **Frustración: nombrarla, no consolarla.**
+3. **Si se marea o dice que está adivinando: bajar a ejercicios mínimos en `practica/`**,
+   de otro dominio, con predicción obligatoria. Ver `Clases/04-funciones/EJERCICIOS-FUNCIONES.md`
+   como modelo. **No** explicar lo mismo otra vez más despacio: eso ya falló dos veces.
+4. **Cuando le des una forma genérica, decile qué va en cada hueco en su caso.** Tiende a
+   copiarla literal, con los nombres del ejemplo incluidos.
+5. **Las listas de instrucciones cortas no le alcanzan. Darle tablas.** Entrada →
+   esperado → qué debería decir el nombre. Eso lo destraba enseguida.
+6. **Para errores de orden de argumentos: mostrar definición y llamada alineadas**, una
+   debajo de la otra, con flechas. Funciona al toque.
+7. **Que prediga antes de correr.** Lo mejor de todo.
+8. **Probar su código en una copia limpia del scratchpad** (los dos `.js`, `tareas.json`,
+   `package.json`). Sin eso no se ven los bugs del caso "primera vez".
+9. **Mostrarle una tabla de qué pasa con cada caso** (comando → salida).
+10. **Llaves y dónde cierra un bloque es su error estructural más frecuente.** Recordarle
+    el truco de VS Code: clic al lado de una llave y se resalta la pareja.
+11. **Pasos mecánicos numerados** cuando la traba es "no sé qué escribir".
+12. **Frustración: nombrarla, no consolarla.**
 
 ## Para repreguntar sin aviso
 
 Lista completa en `06-conceptos.md`. Las más urgentes:
 
-- **`return` sin agarrar el resultado.** Le pasó **tres veces** (dos con `JSON.stringify`,
-  una con `cargarTareas()`). Preguntarle qué hace `cargarTareas()` sola en una línea.
+- **Por qué un test que compara `true === true` es inútil.** Fue el error grave de esta sesión.
+- **`return` sin agarrar el resultado.** Le pasó tres veces; la cuarta la resolvió solo.
 - **Anidar:** por qué la validación va adentro de la rama del comando y no al lado.
 - **Por qué conviene una constante en vez de un texto suelto** (contestó mal en sesión 2).
-- **Nombres:** tres conversaciones ya. Si aparece un `n1` o un nombre que no dice qué es,
-  marcarlo.
+- **Importar un archivo lo ejecuta.**
 
-## Detalle abierto
+## Detalles abiertos
 
-`"agregar"` está en la constante **y** a mano en el mensaje del `else`. Fuente única de
-verdad, sin resolver. Y `cargarTareas` mezcla hacer con devolver (se le señaló; decidió a
-propósito dejarlo así y lo justificó bien).
+- `"agregar"` está en la constante **y** a mano en el mensaje del `else`. Fuente única de
+  verdad, sin resolver.
+- `cargarTareas` mezcla hacer con devolver (decidido a propósito, lo justificó bien).
+- `a-mano.js` quedó con cinco parámetros y mensajes duplicados, **a propósito**, para
+  comparar con `node:test`.
 
 ## Recordatorio
 

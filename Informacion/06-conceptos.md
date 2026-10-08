@@ -104,3 +104,28 @@ que algo lo sabe porque "ya lo vio".
 - ¿Por qué `estaEnRango(numero, cantidad)` en la llamada da `ReferenceError`?
 - ¿Por qué `funciones.js` necesita su propio `import fs` si `asistente.js` ya lo tenía?
 - ¿Por qué `guardar` no lleva `return` y `estaEnRango` sí?
+
+## Clase 5 — tests (sesión 6)
+
+| Concepto | Estado | Visto en |
+|---|---|---|
+| Un test es código que comprueba código | flojo | Clase 5 (5.A) |
+| `obtenido` se ejecuta, `esperado` se escribe a mano | flojo (**error grave en 5.A**) | Clase 5 (5.A) |
+| Un test que pasa siempre es peor que no tener test | flojo | Clase 5 (5.A) |
+| Un mensaje de falla tiene que decir esperado y obtenido | flojo | Clase 5 (5.A) |
+| `node:test` + `assert.equal`, correr con `node --test` | flojo | Clase 5 (5.C) |
+| Pasar una función como argumento (`() => {}`) | flojo | Clase 5 (5.C) |
+| Importar un archivo **lo ejecuta** | flojo | Clase 5 (5.C) |
+| Rutas relativas: `./` y contar `../` | flojo (se pasó por uno) | Clase 5 (5.A) |
+| Argumentos faltantes → `undefined`, sin error | flojo | Clase 5 (5.B) |
+| Regresión: por qué los tests avisan | flojo | Clase 5 (1) |
+| Testear los bordes primero | flojo | Clase 5 |
+| `assert.deepEqual` para listas y objetos | pendiente | Clase 5 (5.E) |
+| Lo difícil de testear suele estar mal diseñado | pendiente | Clase 5 (5.D/5.E) |
+
+## Más preguntas para repreguntar
+
+- ¿Por qué un test que compara `true === true` es inútil?
+- ¿Qué pasa si importás un archivo que además de exportar ejecuta cosas?
+- ¿Por qué `[1,2] === [1,2]` da `false`?
+- ¿Qué te avisa un test que no te avisa probar a mano?
