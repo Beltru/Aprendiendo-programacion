@@ -129,3 +129,21 @@ que algo lo sabe porque "ya lo vio".
 - ¿Qué pasa si importás un archivo que además de exportar ejecuta cosas?
 - ¿Por qué `[1,2] === [1,2]` da `false`?
 - ¿Qué te avisa un test que no te avisa probar a mano?
+
+## Clase 5 — cierre (sesión 7)
+
+| Concepto | Estado | Visto en |
+|---|---|---|
+| Un test nunca puede tocar datos reales | **firme** | Clase 5 (5.D) |
+| `assert.deepEqual` vs `equal` para listas y objetos | **firme** (lo explicó solo) | Clase 5 (5.E) |
+| Lo difícil de testear está pegado a algo de afuera | flojo (no supo contestarlo) | Clase 5 (5.D) |
+| Funciones que calculan vs funciones con efecto | pendiente | Clase 5 (pregunta 3) |
+| Un test solo prueba los casos que se te ocurrieron | flojo (creía que probaba los comandos) | Clase 5 (pregunta 2) |
+| Valor por defecto en un parámetro (`x = algo`) | flojo (**lo usó sin saber qué hacía**) | Clase 5 (5.E) |
+| Un test sin comprobaciones adentro siempre pasa | flojo | Clase 5 (5.E) |
+
+## Más preguntas para repreguntar
+
+- ¿Cuáles de tus comandos tienen tests? (Respuesta: ninguno.)
+- ¿Qué hace `archivo = algo` en los paréntesis de una función? ¿Y por qué lo sacamos?
+- ¿Por qué `estaEnRango` se testea en una línea y `guardar` no se podía testear?

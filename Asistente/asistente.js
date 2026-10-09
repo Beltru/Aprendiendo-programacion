@@ -6,13 +6,14 @@ const eliminar = "eliminar"
 const completar = "completar"
 const n = Number(process.argv[3])
 
+const archivoTareas = "Asistente/tareas.json"
 
-const tareas = cargarTareas()
+const tareas = cargarTareas(archivoTareas)
 
 
 if (process.argv[2] === agregar) {
      tareas.push({ texto: process.argv[3], hecha: false })
-    guardar(tareas)
+    guardar(tareas, archivoTareas)
    
     console.log("Se agrego una nueva tarea")
     
@@ -28,7 +29,7 @@ if (process.argv[2] === agregar) {
       }  else if (process.argv[2] === eliminar) { 
         if (estaEnRango(n, tareas.length)) {
             tareas.splice(n - 1, 1)
-            guardar(tareas)
+            guardar(tareas, archivoTareas)
             console.log("Se elimino la tarea")
         } else {
                 console.log("El número de tarea ingresado no es válido")
@@ -37,7 +38,7 @@ if (process.argv[2] === agregar) {
       } else if (process.argv[2] === completar) { 
         if (estaEnRango(n, tareas.length)) {
              tareas[n - 1].hecha = true
-            guardar(tareas)
+            guardar(tareas, archivoTareas)
             console.log("Se completo la tarea")
         } else {
                 console.log("El número de tarea ingresado no es válido")

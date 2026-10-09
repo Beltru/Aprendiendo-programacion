@@ -68,3 +68,62 @@ un archivo de prueba.
 señaló y se le dijo que no lo arreglara, porque `node:test` muestra el diseño correcto
 (un texto + una comparación). Vale cerrar el círculo cuando retome: preguntarle por qué
 la herramienta de Node necesita dos cosas y la suya cinco.
+
+---
+
+## Cierre — sesión 7 (2026-10-08)
+
+**Clase 5 cerrada.** Pasos 5.D y 5.E hechos. **Seis tests en verde** con `node --test`.
+
+### 5.D — ver el problema
+
+Costó llegar. Vio que `guardar` escribía `tareas.json`, pero no la consecuencia. Lo que
+funcionó fue **la escena concreta**: *"tenés cinco tareas reales ahí; corrés los tests;
+¿qué queda en el archivo?"*. Ahí dijo que quedaba solo lo nuevo, y de ahí salió la regla:
+**un test nunca puede tocar datos reales**.
+
+Después confundió **si** guarda con **dónde** guarda; se le mostró que hoy la ruta la
+decide la función y nadie que la llame puede cambiarla.
+
+### 5.E — hacerlo testeable
+
+- Escribió `guardar(tareas, archivo = archivoTareas)` usando un **valor por defecto**,
+  que no se le había enseñado. Al preguntarle qué hacía, **contestó mal**: dijo que sin el
+  segundo argumento no habría archivo que sobreescribir, cuando justamente usa el real.
+  Se le explicó que el default dejaba la trampa peor: un test que se olvide el argumento
+  le borra sus tareas **sin un solo error**. Eligió hacer la ruta obligatoria.
+- Al sacar el default borró también la constante que `cargarTareas` todavía usaba
+  (`ReferenceError`). Se aprovechó para hacer `cargarTareas` en el mismo movimiento.
+- `funciones.js` quedó **sin ninguna mención a `tareas.json`**: las dos funciones son
+  genéricas. La constante vive en `asistente.js`, que es quien sabe dónde guarda sus cosas
+  (lo dedujo él).
+- Escribió `archivos.test.js`: guarda una lista de prueba en
+  `practica/tareas-de-prueba.json`, la carga y compara. **Sin tocar sus tareas reales.**
+- `assert.equal` falló con la función correcta. Entendió el motivo y lo explicó bien:
+  *"aunque dos listas tengan exactamente los mismos elementos siguen siendo dos listas
+  diferentes"*. Pasó a `deepEqual`.
+
+### Errores menores del camino
+
+- `assert.deepEqualequal` (nombres pegados).
+- `assert.deepEqual(cargado === tareasPrueba)`: un solo argumento ya comparado, en vez de
+  dos separados por coma.
+- Otra vez una llamada sin agarrar el resultado (`cargarTareas(...)` suelta además de la
+  que sí asignaba).
+
+### Preguntas de cierre
+
+- **1 (deepEqual):** bien y con sus palabras.
+- **2 (qué prueba un test):** dijo *"que los comandos funcionan"* — **mal**. Se le mostró
+  que **ninguno de sus cuatro comandos tiene test**: todo `asistente.js` está sin cubrir.
+  Y que un test solo prueba los casos que se le ocurrieron.
+- **3 (por qué `guardar` era difícil):** no supo. Se le dio el concepto: funciones que
+  solo calculan vs funciones con **efecto**, y que el efecto se vuelve testeable cuando el
+  que llama elige qué parte del mundo se toca.
+
+### Lo que quedó sin hacer, y es el gancho de la próxima
+
+**Los comandos no tienen tests.** Eso es lo que de verdad falta, y es difícil por el mismo
+motivo que `guardar`: `asistente.js` lee `process.argv` y escribe en pantalla, todo
+mezclado con la lógica. Testearlo obliga a separar *decidir qué hacer* de *leer la entrada
+y mostrar la salida*. Ese es un tema propio, y es el camino natural a la Clase 6.

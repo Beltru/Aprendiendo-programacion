@@ -3,6 +3,53 @@
 Orden cronológico. La entrada más nueva va **arriba**.
 
 ---
+## 2026-10-08 — Sesión 7: cierre de la Clase 5
+
+**Qué pasó**
+
+Cerró la Clase 5. Hizo 5.D (ver que un test no puede tocar datos reales) y 5.E (pasarle
+la ruta por parámetro a `guardar` y `cargarTareas` para poder testearlas). **Seis tests en
+verde.** `funciones.js` quedó sin ninguna mención a `tareas.json`.
+
+Detalle en `Clases/05-tests/REVISION.md`.
+
+**Lo más importante de esta sesión: cómo pedirle las cosas**
+
+A mitad de camino dijo, textual:
+
+> *"No se que queres que haga ni como, deja de darme enunciados larguisimos que no se hacer"*
+
+**Tenía razón.** Le había dado un bloque con tres pasos, una pista y una advertencia, todo
+junto. A partir de ahí se pasó a **un paso corto por mensaje**, esperando su respuesta
+antes del siguiente — y el resto de la clase salió sin fricción.
+
+Regla: **una acción verificable por mensaje.** Los enunciados largos van al `.md` de la
+clase, nunca al chat. Si hay varios datos, tabla. Guardado también en memoria.
+
+**Lo que funcionó para destrabarlo**
+
+- **La escena concreta** en vez de la pregunta abstracta: *"tenés cinco tareas reales ahí;
+  corrés los tests; ¿qué queda en el archivo?"*. Con la pregunta general no llegaba.
+- Señalarle que algo ya lo había escrito él en otro archivo (`asistente.js` línea 11,
+  `const tareas = cargarTareas(...)`) cuando preguntó cómo guardar un valor devuelto.
+
+**Lo que hay que vigilar**
+
+- **Usó un valor por defecto sin saber qué hacía** (`archivo = archivoTareas`). Al
+  preguntarle, contestó mal. Cuando aparezca sintaxis que no se le enseñó, **preguntarle
+  qué hace antes de seguir** — puede venir del editor.
+- Dijo que los tests prueban "que los comandos funcionan". **Ninguno de sus comandos tiene
+  test.** Repreguntar.
+- Sigue apareciendo la llamada sin agarrar el resultado.
+
+**Cambios en el repo**
+
+- `Asistente/funciones.js`: `guardar` y `cargarTareas` reciben la ruta (lo escribió él).
+- `Clases/05-tests/practica/archivos.test.js` y `tareas-de-prueba.json`: nuevos.
+- `Clases/05-tests/REVISION.md`: cierre.
+
+---
+
 ## 2026-10-07 — Sesión 6: Clase 5 (tests), pasos 5.A a 5.C
 
 **Qué pasó**

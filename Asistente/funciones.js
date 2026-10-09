@@ -1,12 +1,11 @@
 import fs from "node:fs";
 
-const archivoTareas = "Asistente/tareas.json"
 
-export function guardar(tareas) {
-  fs.writeFileSync(archivoTareas, JSON.stringify(tareas), "utf-8")
+export function guardar(tareas, archivo) {
+  fs.writeFileSync(archivo, JSON.stringify(tareas), "utf-8")
 }
 
-export function cargarTareas () {
+export function cargarTareas (archivoTareas) {
 const existe = fs.existsSync(archivoTareas)
 if (existe === false) {
     fs.writeFileSync(archivoTareas, "[]", "utf-8")
