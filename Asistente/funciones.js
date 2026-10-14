@@ -21,3 +21,9 @@ if (existe === false) {
 export function estaEnRango (numero, cantidad) {
     return numero >= 1 && numero <= cantidad && Number.isInteger(numero);
 }
+
+export function agregarTarea(tareas, texto) {
+         tareas.push({ texto: texto, hecha: false })
+        return("Se agrego una nueva tarea")
+        
+        }  

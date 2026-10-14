@@ -1,4 +1,4 @@
-import { guardar, cargarTareas, estaEnRango } from "./funciones.js"
+import { guardar, cargarTareas, estaEnRango, agregarTarea } from "./funciones.js"
 
 const agregar = "agregar"
 const listar = "listar"
@@ -12,10 +12,10 @@ const tareas = cargarTareas(archivoTareas)
 
 
 if (process.argv[2] === agregar) {
-     tareas.push({ texto: process.argv[3], hecha: false })
+    const mensaje = agregarTarea(tareas, process.argv[3])
     guardar(tareas, archivoTareas)
    
-    console.log("Se agrego una nueva tarea")
+    console.log(mensaje)
     
     } 
     else if (process.argv[2] === listar) {
