@@ -27,3 +27,11 @@ export function agregarTarea(tareas, texto) {
         return("Se agrego una nueva tarea")
         
         }  
+
+export function completarTarea (tareas, numero) {
+if (estaEnRango(numero, tareas.length)) {
+             tareas[numero - 1].hecha = true
+            return("Se completo la tarea")
+} else {
+    return("El número de tarea ingresado no es válido")
+} }
