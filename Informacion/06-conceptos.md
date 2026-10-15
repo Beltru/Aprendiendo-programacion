@@ -147,3 +147,23 @@ que algo lo sabe porque "ya lo vio".
 - ¿Cuáles de tus comandos tienen tests? (Respuesta: ninguno.)
 - ¿Qué hace `archivo = algo` en los paréntesis de una función? ¿Y por qué lo sacamos?
 - ¿Por qué `estaEnRango` se testea en una línea y `guardar` no se podía testear?
+
+## Clase 6 — separar lógica de entrada/salida (sesiones 8-9)
+
+| Concepto | Estado | Visto en |
+|---|---|---|
+| Las tres partes: entrada, lógica, salida | flojo | Clase 6 |
+| Una función de lógica devuelve el mensaje en vez de imprimirlo | flojo | Clase 6 (6.A) |
+| Los tres pasos de un test: armar, llamar, comprobar | flojo | Clase 6 (6.B) |
+| `lista.length` | flojo (**no se acordaba**) | Clase 1 / Clase 6 |
+| Todo lo que viene de la terminal es texto (pasó `argv[3]` en vez de `n`) | flojo (**error repetido**) | Clases 3 y 6 |
+| Un refactor no cambia el comportamiento (ni los mensajes) | flojo | Clase 6 (6.C) |
+| `map` vs `forEach`, y `join` | pendiente | Clase 6 (6.D) |
+| Modificar la lista que te pasaron cambia la de afuera | pendiente | Clase 6 (pregunta 3) |
+
+## Más preguntas para repreguntar
+
+- ¿Por qué la lógica no debería imprimir nada?
+- ¿Qué tres pasos tiene cualquier test?
+- ¿Cómo le preguntás a una lista cuántos elementos tiene?
+- ¿Por qué `completar 1` fallaba al pasarle `process.argv[3]`?

@@ -3,6 +3,59 @@
 Orden cronológico. La entrada más nueva va **arriba**.
 
 ---
+## 2026-10-14/15 — Sesiones 8 y 9: Clase 6 (separar lógica de entrada/salida), a mitad
+
+**Qué pasó**
+
+Arrancó la Clase 6. Hechos **6.A** (`agregarTarea`), **6.B** (su primer test de lógica) y
+**6.C** (`completarTarea`, con la validación adentro). Siete tests en verde. Faltan
+`eliminarTarea`, `listarTareas` y los tests del 6.E.
+
+**El pedido más importante del repo hasta ahora**
+
+A mitad de la sesión 8 dijo, textual:
+
+> *"No entiendo que estoy haciendo directamente. Hagamos una cosa, plantea toda la clase,
+> para explicarme, ayudarme ir haciendome una idea de lo que voy haciendo (...) porque
+> estoy todo el tiempo preguntandote, vos corrigiendo y es medio robotico todo"*
+
+**Tenía razón.** La regla de "un paso por mensaje" (sesión 7) evitó que se bloqueara, pero
+al no tener el panorama los pasos se volvieron movimientos a ciegas: ejecutaba sin
+entender, que es justo lo que el repo existe para evitar.
+
+Se escribió **`Clases/06-separar-logica/EXPLICACION.md`**: el problema concreto, las tres
+partes de un programa, cómo queda cada rama, la tabla de las cuatro funciones, qué compra
+cada paso, y los tres pasos fijos de todo test (armar, llamar, comprobar).
+
+**Las dos reglas juntas, que es la calibración actual:**
+
+1. **Primero el mapa** (un `EXPLICACION.md` por clase, que lea antes de arrancar).
+2. **Después un paso corto por mensaje**, recordándole dónde está en ese mapa.
+
+**Lo que funcionó para destrabarlo**
+
+- **Hacerlo imprimir lo que no entiende.** Dijo *"no entiendo nada de lo que estoy
+  haciendo (...) no sé cómo escribirlo"* frente a un `assert` sobre `mensaje`. Se le pidió
+  cambiar el assert por un `console.log(mensaje)`: vio `Se agrego una nueva tarea` en
+  pantalla y la comprobación se volvió obvia. **Cuando no entiende qué contiene algo,
+  imprimirlo antes de seguir explicando.**
+- **La receta de copiar y después quitar.** Frente a la hoja en blanco (*"Aca es donde no
+  se ni donde empezar, ni que escribir"*), funcionó: cáscara vacía → pegar la rama de
+  `asistente.js` tal cual → lista numerada de qué borrar. Dos veces, 6.A y 6.C.
+
+**Bugs suyos que vale registrar**
+
+- Envolvió la llamada en `push`: `tareas.push(agregarTarea(tareas, ...))`, metiendo el
+  mensaje como tarea.
+- Definió `const lista = agregarTarea(lista, ...)`: la constante usándose a sí misma.
+- Comparó la lista contra el mensaje en un `assert`, y `deepEqualequal` otra vez.
+- Cambió el texto del mensaje de error (`"Numero invalido"`), rompiendo la regla de que un
+  refactor no cambia el comportamiento.
+- **Pasó `process.argv[3]` en vez de `n`** a `completarTarea`: la validación rechazaba
+  todo porque `Number.isInteger("1")` es `false`. Lección de la Clase 3 de vuelta.
+
+---
+
 ## 2026-10-08 — Sesión 7: cierre de la Clase 5
 
 **Qué pasó**
