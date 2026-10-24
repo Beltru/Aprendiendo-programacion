@@ -1,4 +1,4 @@
-import { guardar, cargarTareas, estaEnRango, agregarTarea, completarTarea } from "./funciones.js"
+import { guardar, cargarTareas, estaEnRango, agregarTarea, completarTarea, eliminarTarea, listarTareas } from "./funciones.js"
 
 const agregar = "agregar"
 const listar = "listar"
@@ -19,29 +19,21 @@ if (process.argv[2] === agregar) {
     
     } 
     else if (process.argv[2] === listar) {
-      if (tareas.length === 0) {
-        console.log("No hay tareas para mostrar")
-        } else  {
-            tareas.forEach((t, i) => {
-                console.log(` ${i + 1}. ${t.texto} ${t.hecha ? '[✓]' : '[ ]'}`)
-            })
-         }
-      }  else if (process.argv[2] === eliminar) { 
-        if (estaEnRango(n, tareas.length)) {
-            tareas.splice(n - 1, 1)
-            guardar(tareas, archivoTareas)
-            console.log("Se elimino la tarea")
-        } else {
-                console.log("El número de tarea ingresado no es válido")
-         }
-
+      const mensaje = listarTareas (tareas)
+      console.log(mensaje)
+      
       } else if (process.argv[2] === completar) { 
        const mensaje = completarTarea(tareas, n)
     guardar(tareas, archivoTareas)
    
     console.log(mensaje)
-         
-
-        } else {
+    
+        }   else if (process.argv[2] === eliminar) { 
+        const mensaje = eliminarTarea(tareas, n)
+    guardar(tareas, archivoTareas)
+   
+    console.log(mensaje)
+          }
+         else {
             console.log("Los comandos actuales son: agregar, listar, eliminar y completar")
        }

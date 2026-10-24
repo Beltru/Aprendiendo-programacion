@@ -2,85 +2,103 @@
 
 > Se reescribe entero al final de cada sesión. Es la foto de dónde estamos.
 
-**Última actualización:** 2026-10-15 (sesión 9)
+**Última actualización:** 2026-10-23 (sesión 10)
 
 ## Dónde estamos
 
-**Clases 1 a 5 cerradas. Clase 6 a mitad: 6.A, 6.B y 6.C hechos.**
+**Clases 1 a 6 hechas.** De la 6 solo quedan las cuatro preguntas de cierre.
 
-`funciones.js` ya tiene `agregarTarea(tareas, texto)` y `completarTarea(tareas, numero)`:
-reciben datos, modifican la lista y **devuelven el mensaje** en vez de imprimirlo. Las
-ramas de `agregar` y `completar` en `asistente.js` quedaron en tres líneas.
+El asistente está separado en dos capas:
 
-**Siete tests en verde** (`node --test`), uno de ellos ya de lógica:
+- **`Asistente/asistente.js`** — la cáscara. Lee `process.argv`, llama, guarda, imprime.
+  Las cuatro ramas tienen la misma forma. Cero `fs`, cero `JSON`, cero validaciones.
+- **`Asistente/funciones.js`** — toda la lógica: `agregarTarea`, `completarTarea`,
+  `eliminarTarea`, `listarTareas`, más `guardar`, `cargarTareas` y `estaEnRango`.
+  **Ninguna sabe que existe una terminal.**
+
+**Doce tests en verde** (`node --test`), en `Clases/05-tests/practica/` y
 `Clases/06-separar-logica/practica/logica.test.js`.
-
-## LAS DOS REGLAS AL ENSEÑARLE (las más importantes de este archivo)
-
-1. **Primero el mapa.** Cada clase necesita un `EXPLICACION.md` con el panorama —
-   problema concreto, cómo queda al final, qué compra cada paso — y que lo lea antes de
-   arrancar. Modelo: `Clases/06-separar-logica/EXPLICACION.md`.
-2. **Después, un paso corto y verificable por mensaje**, recordándole dónde está en ese
-   mapa. Los enunciados largos van al `.md`, nunca al chat.
-
-Sin la 1, los pasos de la 2 se vuelven movimientos a ciegas: lo dijo él
-(*"es medio robotico todo"*). Sin la 2, se bloquea. Van juntas.
 
 ## Cómo arrancar la próxima sesión
 
-> "Te falta `eliminarTarea`, que es igual a `completarTarea` pero con el `splice`.
-> ¿Te acordás de la receta para la hoja en blanco?"
+Primero cerrar la Clase 6 con las cuatro preguntas del enunciado (están en
+`Clases/06-separar-logica/ENUNCIADO.md`). Son cortas y la cuarta es la mejor: *si mañana
+quisieras el asistente en una página web, qué parte reescribirías y qué parte no.*
 
-La receta (funcionó dos veces): **cáscara vacía → pegar la rama de `asistente.js` tal
-cual → lista numerada de qué borrar.** Nunca "escribí la función".
+Después, **Clase 7**. Falta escribir el enunciado y su `EXPLICACION.md`. Opciones, en
+orden de utilidad para el Jarvis que quiere:
 
-Después: **6.D** (`listarTareas`, con `map` y `join` — ojo, dos cosas nuevas, explicar el
-para qué antes) y **6.E** (completar `logica.test.js` con la tabla de casos del enunciado).
+1. **Fechas y prioridades** (etapa 5 del rumbo): `editar`, fecha de vencimiento, ordenar,
+   filtrar. Trae `filter`/`sort` y el infierno de las fechas. Es la que más le acerca algo
+   que use de verdad.
+2. **Fuente única de verdad y limpieza**: los comandos en una sola estructura en vez de
+   cuatro constantes + el mensaje del `else` escrito a mano. Corta, consolida, sin tema nuevo.
+3. **Interfaz web con Tailwind** (etapa 7): ahora es posible de verdad, porque la lógica
+   ya está separada. Sería el premio, y su terreno cómodo.
 
-## Cómo enseñarle — calibrado en sesiones 2 a 9
+Preguntarle cuál le sirve más.
 
-1. **El mapa antes de los pasos.** Ver arriba.
-2. **Un paso corto por mensaje.** Ver arriba.
-3. **Cuando no entiende qué contiene algo, que lo imprima.** Lo que lo destrabó en el 6.B
-   fue cambiar un `assert` por un `console.log` y **ver** el valor. Sirve más que explicar.
-4. **Frente a la hoja en blanco: copiar y después quitar.** Nunca pedirle que escriba una
-   función de cero; que copie lo que ya funciona y se le dé la lista de qué borrar.
-5. **Para qué sirve ANTES de cómo se usa.**
-6. **No ofrecerle cortar la sesión.** Él avisa.
-7. **Si dice que está adivinando: bajar a ejercicios mínimos en `practica/`**, de otro
+## LAS DOS REGLAS AL ENSEÑARLE
+
+1. **Primero el mapa.** Cada clase necesita un `EXPLICACION.md` con el panorama
+   (problema concreto, cómo queda al final, qué compra cada paso) y que lo lea antes de
+   arrancar. Modelo: `Clases/06-separar-logica/EXPLICACION.md`.
+2. **Después, un paso corto y verificable por mensaje.**
+
+Sin la 1 los pasos se vuelven mecánicos (*"es medio robotico todo"*); sin la 2 se bloquea.
+
+## Cómo enseñarle — calibrado en sesiones 2 a 10
+
+1. **El mapa antes de los pasos**, y **un paso por mensaje**. Ver arriba.
+2. **Frente a la hoja en blanco: copiar y después quitar.** Cáscara vacía → pegar el
+   código que ya funciona → lista numerada de qué borrar. Funcionó cinco veces. **Nunca
+   pedirle "escribí la función".**
+3. **Cuando no entiende qué contiene algo, que lo imprima.** Cambiar el `assert` por un
+   `console.log` y mirar el valor lo destrabó tres veces. Vale más que explicar de nuevo.
+4. **En cada test, preguntarle: "si rompo la función, ¿este test se pone en rojo?"**
+   Escribió tres falsos positivos en dos clases.
+5. **Tablas, no listas de instrucciones.** Con la tabla armar/llamar/comprobar escribió
+   tres tests casi sin ayuda.
+6. **Leer el archivo COMPLETO antes de decirle que algo no cambió.** En la sesión 10
+   Claude insistió tres veces con que no había guardado, y en realidad había agregado una
+   rama nueva más abajo. Él tenía razón.
+7. **Para qué sirve antes de cómo se usa.**
+8. **No ofrecerle cortar la sesión.** Él avisa.
+9. **Si dice que está adivinando: bajar a ejercicios mínimos en `practica/`**, de otro
    dominio, con predicción obligatoria. Modelo:
    `Clases/04-funciones/EJERCICIOS-FUNCIONES.md`.
-8. **Escenas concretas, no preguntas abstractas.**
-9. **Recordarle que algo ya lo escribió él**, con archivo y línea.
-10. **Cuando le des una forma genérica, decile qué va en cada hueco en su caso.**
-11. **Tablas en vez de listas de instrucciones.**
+10. **Escenas concretas, no preguntas abstractas.**
+11. **Recordarle que algo ya lo escribió él**, con archivo y línea.
 12. **Si aparece sintaxis que no se le enseñó, preguntarle qué hace antes de seguir.**
-13. **Que prediga antes de correr**, y probar su código en una copia limpia del
-    scratchpad, mostrándole una tabla comando → salida.
-14. **Llaves y dónde cierra un bloque es su error estructural más frecuente.**
+13. **Que prediga antes de correr**, y probar en una copia limpia del scratchpad con una
+    tabla comando → salida.
+14. **Llaves y dónde cierra un bloque sigue siendo su error estructural más frecuente.**
 15. **Frustración: nombrarla, no consolarla.**
 
 ## Para repreguntar sin aviso
 
 Lista completa en `06-conceptos.md`. Las más urgentes:
 
-- **¿Cómo le preguntás a una lista cuántos elementos tiene?** No se acordaba.
-- **¿Por qué `completar 1` fallaba al pasarle `process.argv[3]`?** (Todo lo que viene de
-  la terminal es texto. Error repetido de la Clase 3.)
-- **¿Cuáles de tus comandos tienen tests?**
-- **¿Qué hace `archivo = algo` en los paréntesis?** Lo usó sin saberlo.
-- **`return` sin agarrar el resultado.** Sigue apareciendo.
+- **`lista[0].hecha`** — acceder a un dato de un objeto dentro de una lista. Tres intentos
+  en la sesión 10. Y por qué `lista[0].completada` da `undefined` en vez de fallar.
+- **"¿Este test se pone en rojo si rompo la función?"**
+- **Todo lo que viene de la terminal es texto** (pasó `argv[3]` en vez de `n`, 2ª vez).
+- **`map` vs `forEach`.**
+- **`return` sin agarrar el resultado.** Apareció en cinco clases distintas.
+- **¿Cuáles de tus comandos tienen tests?** (Ahora sí tienen: preguntárselo de nuevo.)
 - **Anidar**, y **por qué conviene una constante en vez de un texto suelto**.
 
 ## Detalles abiertos
 
-- `"agregar"` está en la constante **y** a mano en el mensaje del `else`.
-- `completar` ahora llama a `guardar` siempre, incluso cuando el número es inválido
-  (escribe la lista sin cambios: inofensivo, pero está la pregunta 3 del enunciado sin
-  hacer: cómo sabe la cáscara si hace falta guardar).
+- `"agregar"` está en la constante **y** a mano en el mensaje del `else`. (Candidato a
+  Clase 7, opción 2.)
+- `completar` y `eliminar` llaman a `guardar` siempre, incluso con número inválido.
+  Inofensivo, pero la pregunta de diseño quedó sin hacer.
 - `cargarTareas` mezcla hacer con devolver, y su mensaje dice `tareas.json` a mano.
-- Los parámetros de ruta se llaman distinto en `guardar` (`archivo`) y en `cargarTareas`
+- Los parámetros de ruta se llaman distinto en `guardar` (`archivo`) y `cargarTareas`
   (`archivoTareas`).
+- El test del formato de `listarTareas` compara el texto exacto: se le avisó que es
+  frágil ante un cambio de espaciado.
 
 ## Recordatorio
 

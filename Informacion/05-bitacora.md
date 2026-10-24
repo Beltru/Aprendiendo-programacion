@@ -3,6 +3,49 @@
 Orden cronológico. La entrada más nueva va **arriba**.
 
 ---
+## 2026-10-23 — Sesión 10: Clase 6 casi cerrada
+
+**Qué pasó**
+
+Pidió terminar la Clase 6 en el día y faltó poco. Hizo **`eliminarTarea`**,
+**`listarTareas`** (con `map` y `join`) y **cuatro de los cinco tests del 6.E**.
+Doce tests en verde. El último lo escribió solo, comparando el texto completo. Quedan las
+preguntas de cierre.
+
+`asistente.js` quedó como cáscara pura: las cuatro ramas son llamar / guardar / imprimir.
+Toda la lógica está en `funciones.js` y ninguna función de ahí sabe que existe una
+terminal. **El objetivo de la clase está cumplido.**
+
+Detalle completo en `Clases/06-separar-logica/REVISION.md`.
+
+**Un error mío que vale anotar**
+
+Dijo tres veces que había cambiado la rama de `eliminar` y yo le respondí que el archivo
+no había cambiado, leyendo solo el rango de líneas donde esperaba el cambio. En realidad
+había **agregado una rama nueva más abajo**, duplicando la condición. Tenía razón él.
+**Leer el archivo completo antes de afirmar que algo no cambió.**
+
+**Lo que vuelve a aparecer y conviene atacar de frente**
+
+- **Tests falsos positivos.** Escribió dos: uno comprobando `lista.length` en una función
+  que no toca la lista, y otro donde los dos lados eran `undefined`
+  (`lista[1].completada` contra `true.hecha`). **Preguntarle siempre: "si rompo la
+  función, ¿este test se pone en rojo?"**
+- **Acceso a datos de un objeto** (`lista[0].hecha`): le costó tres intentos. La
+  distinción que no tiene firme: un nombre después de un punto es una propiedad; el mismo
+  nombre suelto es una variable.
+- **El valor de retorno descartado**, otra vez (el `map` sin `return`).
+- **Todo lo que viene de la terminal es texto** (pasó `argv[3]` en vez de `n`). Segunda
+  vez en dos clases.
+
+**Lo que funcionó**
+
+- La receta de la hoja en blanco (cáscara → pegar → lista de qué borrar), cuatro veces.
+- Hacerlo imprimir el valor que no entiende, dos veces.
+- Darle los tests en tabla (armar / llamar / comprobar): escribió tres casi sin ayuda.
+
+---
+
 ## 2026-10-14/15 — Sesiones 8 y 9: Clase 6 (separar lógica de entrada/salida), a mitad
 
 **Qué pasó**

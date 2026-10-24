@@ -35,3 +35,22 @@ if (estaEnRango(numero, tareas.length)) {
 } else {
     return("El número de tarea ingresado no es válido")
 } }
+
+export function eliminarTarea (tareas, numero) {
+    if (estaEnRango(numero, tareas.length)) {
+                tareas.splice(numero - 1, 1)
+                return("Se elimino la tarea")
+            } else {
+                    return("El número de tarea ingresado no es válido")
+             }
+}
+
+export function listarTareas (tareas) {
+     if (tareas.length === 0) {
+        return("No hay tareas para mostrar")
+        } else  {
+            return tareas.map((t, i) => {
+                return(` ${i + 1}. ${t.texto} ${t.hecha ? '[✓]' : '[ ]'}`)
+            }).join("\n")
+         }
+ }

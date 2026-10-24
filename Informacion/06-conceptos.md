@@ -167,3 +167,25 @@ que algo lo sabe porque "ya lo vio".
 - ¿Qué tres pasos tiene cualquier test?
 - ¿Cómo le preguntás a una lista cuántos elementos tiene?
 - ¿Por qué `completar 1` fallaba al pasarle `process.argv[3]`?
+
+## Clase 6 — cierre parcial (sesión 10)
+
+| Concepto | Estado | Visto en |
+|---|---|---|
+| La lógica devuelve, la cáscara imprime | flojo | Clase 6 |
+| `map` devuelve una lista nueva; `forEach` no devuelve nada | flojo | Clase 6 (6.D) |
+| `join("\n")` para pegar una lista en un texto | flojo (3 intentos para ubicarlo) | Clase 6 (6.D) |
+| `return` solo existe adentro de una función | flojo | Clase 6 (6.D) |
+| Acceder a un dato de un objeto en una lista (`lista[0].hecha`) | **flojo (3 intentos)** | Clase 6 (6.E) |
+| Un nombre después de un punto es propiedad; suelto es variable | flojo | Clase 6 (6.E) |
+| Un test puede pasar sin probar nada (`undefined === undefined`) | **flojo (lo repitió)** | Clases 5 y 6 |
+| En una cadena `if/else if`, la primera que coincide gana | flojo (duplicó una rama) | Clase 6 |
+| `assert.ok` + `.includes` | pendiente | Clase 6 (6.E) |
+
+## Más preguntas para repreguntar
+
+- **"Si rompo la función, ¿este test se pone en rojo?"** — preguntárselo en cada test.
+- ¿Por qué `lista[1].completada` no da error y da `undefined`?
+- ¿Qué diferencia hay entre `map` y `forEach`?
+- ¿Por qué `return` no se puede usar en `asistente.js` fuera de una función?
+- Si hay dos ramas con la misma condición, ¿qué pasa con la segunda?
