@@ -1,6 +1,6 @@
  import test from "node:test"
  import assert from "node:assert/strict"
- import {estaEnRango} from '../../../Asistente/funciones.js';
+ import {estaEnRango} from '../../../Asistente/logica.js';
 
 
     test("El numero 1 esta en rango", () => {

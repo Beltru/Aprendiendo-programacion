@@ -189,3 +189,28 @@ que algo lo sabe porque "ya lo vio".
 - ¿Qué diferencia hay entre `map` y `forEach`?
 - ¿Por qué `return` no se puede usar en `asistente.js` fuera de una función?
 - Si hay dos ramas con la misma condición, ¿qué pasa con la segunda?
+
+## Clase 7 — interfaz web (sesión 11)
+
+| Concepto | Estado | Visto en |
+|---|---|---|
+| Un módulo sin imports sirve en Node y en el navegador | **firme** (lo vio explotar) | Clase 7 (7.A) |
+| `node:fs` no existe en el navegador (error de CORS) | **firme** | Clase 7 (7.B) |
+| Un import arrastra los imports del archivo importado | flojo | Clase 7 (7.B) |
+| `querySelector("#id")` | flojo | Clase 7 (7.B) |
+| `textContent` vs `innerHTML` | flojo | Clase 7 (7.B) |
+| `addEventListener("click", () => {})` | flojo | Clase 7 (7.C) |
+| El patrón: leer entrada → lógica → redibujar → limpiar | flojo (lo escribió solo) | Clase 7 (7.C) |
+| Un id mal escrito da `null` en silencio | flojo | Clase 7 (7.C) |
+| El `\n` no se ve en HTML; el `<br>` va en la cáscara | **firme** | Clase 7 (7.B) |
+| Las reglas del asistente van en la lógica, no en la cáscara | flojo | Clase 7 (7.C) |
+| `""` y `undefined` son dos formas distintas de "vacío" | flojo | Clase 7 (7.C) |
+| `createElement` / `appendChild` | pendiente | Clase 7 (7.D) |
+| `localStorage` | pendiente | Clase 7 (7.E) |
+
+## Más preguntas para repreguntar
+
+- ¿Por qué `logica.js` se puede importar desde el navegador y `almacenamiento.js` no?
+- Si una regla está escrita en las dos cáscaras, ¿qué problema hay?
+- ¿Por qué `texto === ""` no alcanzaba para la terminal?
+- ¿Qué pasa si el `id` del HTML no coincide con el del `querySelector`?

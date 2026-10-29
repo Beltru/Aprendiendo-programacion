@@ -1,4 +1,5 @@
-import { guardar, cargarTareas, estaEnRango, agregarTarea, completarTarea, eliminarTarea, listarTareas } from "./funciones.js"
+import {  agregarTarea, completarTarea, eliminarTarea, listarTareas } from "./logica.js"
+import { guardar, cargarTareas } from "./almacenamiento.js"
 
 const agregar = "agregar"
 const listar = "listar"

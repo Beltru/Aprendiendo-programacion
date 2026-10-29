@@ -1,6 +1,6 @@
 import test from "node:test"
 import assert from "node:assert/strict"
-import { agregarTarea, listarTareas, eliminarTarea, completarTarea } from "../../../Asistente/funciones.js"
+import { agregarTarea, listarTareas, eliminarTarea, completarTarea } from "../../../Asistente/logica.js"
 
 test ("agregarTarea suma una tarea a la lista", () => {
     const lista = []
@@ -49,4 +49,13 @@ const tarea2 = agregarTarea (lista, "Tarea 2")
 const mensaje = listarTareas (lista)
 assert.equal(mensaje, " 1. Tarea 1 [ ]\n 2. Tarea 2 [ ]")     
 
+})
+
+test ("Escribe las tareas en el formato correcto cuando hay tareas hechas", () => {
+    const lista = []
+    const tarea1 = agregarTarea (lista, "Tarea 1")
+    const tarea2 = agregarTarea (lista, "Tarea 2")
+    completarTarea (lista, 1)
+    const mensaje = listarTareas (lista)
+    assert.equal(mensaje, " 1. Tarea 1 [✓]\n 2. Tarea 2 [ ]")     
 })

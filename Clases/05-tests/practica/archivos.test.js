@@ -1,6 +1,6 @@
  import test from "node:test"
  import assert from "node:assert/strict"
- import {guardar, cargarTareas} from '../../../Asistente/funciones.js';
+ import {guardar, cargarTareas} from '../../../Asistente/almacenamiento.js';
 
  const archivoTareasPrueba = "Clases/05-tests/practica/tareas-de-prueba.json"
  const tareasPrueba = [

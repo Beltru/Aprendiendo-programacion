@@ -3,6 +3,52 @@
 Orden cronológico. La entrada más nueva va **arriba**.
 
 ---
+## 2026-10-28 — Sesión 11: Clase 7 (interfaz web), 7.A a 7.C
+
+**Qué pasó**
+
+Eligió la interfaz web entre las tres opciones. Hizo **7.A** (partir `funciones.js` en
+`logica.js` + `almacenamiento.js`), **7.B** (la página mostrando tareas con la misma
+`listarTareas` de la terminal) y casi todo **7.C** (agregar desde un input). Trece tests
+en verde.
+
+Detalle en `Clases/07-interfaz-web/REVISION.md`.
+
+**Lo que esta clase demostró**
+
+La apuesta de la Clase 6 se pagó: **la misma función de lógica corriendo en la terminal y
+en el navegador, sin un cambio.** Y el error de CORS con `node:fs` le mostró en vivo por
+qué `logica.js` tenía que quedar sin imports.
+
+**La conversación que más valió**
+
+Puso la validación de "tarea vacía" en la cáscara (`web.js`). Se le mostró, corriendo la
+terminal, que seguía agregando tareas con `undefined`: **dos comportamientos según la
+interfaz**. La movió a la lógica. Y descubrió que `texto === ""` no alcanzaba, porque la
+terminal manda `undefined` y el navegador `""`.
+
+Ese patrón — **mostrarle la consecuencia corriendo la otra interfaz, en vez de
+argumentar** — funcionó mejor que cualquier explicación.
+
+**Lo que mejoró de forma visible**
+
+- Escribió el patrón completo del evento (leer / llamar / redibujar / limpiar) **de una,
+  sin ayuda**.
+- Eligió bien dónde poner el `<br>` y justificó por qué.
+- Escribió un test que no se le pidió, cubriendo una rama sin probar.
+- Usó `return` para salir temprano de una función, correctamente.
+
+**Lo que sigue apareciendo**
+
+- Definir una función y no llamarla.
+- El valor de retorno descartado (ahora con `replaceAll` y con `agregarTarea`).
+- Ids que no coinciden entre el HTML y el JS (error silencioso: `null`).
+
+**Un error mío:** le anticipé que un cambio iba a romper un test y no rompió ninguno.
+**Verificar antes de anticipar.**
+
+---
+
 ## 2026-10-23 — Sesión 10: Clase 6 casi cerrada
 
 **Qué pasó**
