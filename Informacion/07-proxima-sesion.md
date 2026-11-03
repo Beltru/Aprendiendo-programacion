@@ -2,94 +2,94 @@
 
 > Se reescribe entero al final de cada sesión. Es la foto de dónde estamos.
 
-**Última actualización:** 2026-10-28 (sesión 11)
+**Última actualización:** 2026-11-02 (sesión 12, fin)
 
 ## Dónde estamos
 
-**Clases 1 a 6 cerradas. Clase 7 (interfaz web) a mitad: 7.A y 7.B hechos, 7.C casi.**
+**Clases 1 a 6 cerradas. Clase 7: 7.A a 7.E hechos. Falta solo 7.F (Tailwind).**
 
     Asistente/
       logica.js          ← 5 funciones puras, CERO imports. La usan las dos interfaces.
       almacenamiento.js  ← guardar / cargarTareas (fs). Solo Node.
       asistente.js       ← cáscara de terminal. Funciona igual que siempre.
       index.html         ← la página ("JARVIS")
-      web.js             ← cáscara de navegador: muestra la lista y agrega desde un input
+      web.js             ← cáscara de navegador: agrega, completa y elimina con el mouse
 
-**Trece tests en verde** (`node --test`). La página se abre con **Live Server** (clic
-derecho en `index.html`); con doble clic no funciona.
+**Catorce tests en verde** (`node --test`). La página se abre con **Live Server**.
+
+**El asistente ya se usa completo desde el navegador**, con botones por tarea, y toda la
+lógica la comparte con la versión de terminal.
 
 ## Cómo arrancar la próxima sesión
 
-Hay dos cosas cortas pendientes del 7.C antes de seguir:
+**El 7.E quedó cerrado y verificado:** las tareas sobreviven al recargar y la página
+arranca vacía la primera vez (probado con `localStorage.clear()`).
 
-1. **En `web.js`, mostrar el mensaje que devuelve `agregarTarea`.** Hoy nadie lo agarra:
-   con el input vacío no agrega **y no avisa nada**, que es peor que antes. Una constante
-   y un `alert`.
-2. **El test del texto vacío** en `logica.test.js`: lista vacía, `agregarTarea(lista, "")`,
-   comprobar que la lista queda en 0 y el mensaje es el de error.
+Queda **solo el 7.F: Tailwind**, sin indicaciones — es su terreno y así quedó acordado.
+Lo único: el `<script src="https://cdn.tailwindcss.com"></script>` en el `<head>`.
 
-Después, **7.D** (botones de completar y eliminar por tarea), **7.E** (`localStorage`) y
-**7.F** (Tailwind, sin indicaciones: es su terreno).
+Y después, **las cuatro preguntas de cierre** del enunciado. La 2 y la 4 son las mejores:
+cuántos lugares toca si cambia una regla, y qué parte de la web cubren sus tests.
 
-Para el 7.D, el enunciado ya avisa lo que importa: `listarTareas` **no sirve** ahí, porque
-devuelve un solo texto y él necesita elementos separados para colgarles un evento. Hay que
-recorrer la lista y crear los elementos (parte 5 de `Referencia/08-navegador.md`). Y ojo
-con la numeración: las funciones esperan desde 1, el `forEach` da desde 0.
+**Ojo con el autocompletado.** En la sesión 12 escribió `lista.length = 0` y
+`push(...JSON.parse(...))` sin saber qué hacían (al preguntarle, dijo que `length`
+"revisa si la lista tiene elementos"). **Dijo la verdad cuando se le preguntó.** Se
+reemplazó por la forma de `cargarTareas`, que sí entiende.
+**Preguntarle siempre qué hace la sintaxis que no se le enseñó.**
 
 ## LAS DOS REGLAS AL ENSEÑARLE
 
 1. **Primero el mapa** (`EXPLICACION.md` por clase, que lo lea antes de arrancar).
 2. **Después, un paso corto y verificable por mensaje.**
 
-## Cómo enseñarle — calibrado en sesiones 2 a 11
+## Cómo enseñarle — calibrado en sesiones 2 a 12
 
 1. El mapa antes de los pasos, y un paso por mensaje.
-2. **Mostrarle la consecuencia corriendo el código, no argumentar.** Lo que lo convenció
-   de mover la regla a la lógica fue ver la terminal agregando `undefined`, no la
-   explicación. Es lo que mejor funciona de todo.
-3. **Frente a la hoja en blanco: copiar y después quitar.** Cáscara vacía → pegar lo que
-   ya funciona → lista numerada de qué borrar. **Nunca "escribí la función".**
-4. **Cuando no entiende qué contiene algo, que lo imprima.**
-5. **En cada test, preguntarle: "si rompo la función, ¿este test se pone en rojo?"**
-6. **Tablas, no listas de instrucciones.**
-7. **Leer el archivo COMPLETO antes de decirle que algo no cambió.** Ya pasó una vez que
-   él tenía razón y Claude insistía con que no había guardado.
-8. **Verificar antes de anticipar.** En la sesión 11 se le anunció que algo iba a romper
-   un test y no rompió nada.
-9. Para qué sirve antes de cómo se usa. No ofrecerle cortar la sesión (él avisa).
-10. Si dice que está adivinando: ejercicios mínimos en `practica/`, de otro dominio, con
+2. **Mostrarle la consecuencia corriendo el código, no argumentar.** Es lo que mejor
+   funciona de todo.
+3. **Tablas comparativas.** Las dos numeraciones (`forEach` vs usuario) lo destrabaron al
+   toque. Lo mismo con "qué sirve en el navegador y qué no".
+4. **Señalarle que algo ya lo escribió él, con archivo y línea.** Funciona siempre y le
+   devuelve confianza.
+5. **Cuando junta varias instrucciones en una, darle la forma en renglones separados con
+   el hueco marcado** (`???`), no la solución.
+6. **Frente a la hoja en blanco: copiar y después quitar.** Nunca "escribí la función".
+7. **Cuando no entiende qué contiene algo, que lo imprima.**
+8. **En cada test, preguntarle: "si rompo la función, ¿este test se pone en rojo?"**
+9. **Insistirle con `Shift + Alt + F`.** Sus errores más frecuentes son de cierres de
+   bloque, y con el código formateado se ven solos.
+10. **Leer el archivo COMPLETO antes de decirle que algo no cambió**, y **verificar antes
+    de anticipar**. Las dos veces que Claude se equivocó fue por eso.
+11. Para qué sirve antes de cómo se usa. No ofrecerle cortar la sesión (él avisa).
+12. Si dice que está adivinando: ejercicios mínimos en `practica/`, de otro dominio, con
     predicción obligatoria. Modelo: `Clases/04-funciones/EJERCICIOS-FUNCIONES.md`.
-11. Escenas concretas, no preguntas abstractas. Recordarle que algo ya lo escribió él,
-    con archivo y línea.
-12. Si aparece sintaxis que no se le enseñó, preguntarle qué hace antes de seguir.
-13. Que prediga antes de correr; probar en una copia limpia del scratchpad con una tabla
-    comando → salida.
-14. Llaves y dónde cierra un bloque sigue siendo su error estructural más frecuente.
-15. Frustración: nombrarla, no consolarla.
+13. Escenas concretas, no preguntas abstractas. Que prediga antes de correr.
+14. Frustración: nombrarla, no consolarla.
 
 ## Para repreguntar sin aviso
 
 Lista completa en `06-conceptos.md`. Las más urgentes:
 
+- **`return` sin agarrar el resultado: séptima aparición** (`document.createElement` sin
+  guardar). **Si vuelve a pasar, hacer un ejercicio dedicado en `practica/`.**
+- **¿Por qué `createElement` solo no hace que el elemento aparezca?**
+- **¿Por qué `i + 1` y no `i - 1`?**
 - **¿Por qué `logica.js` se puede importar desde el navegador y `almacenamiento.js` no?**
 - **Si una regla está escrita en las dos cáscaras, ¿qué problema hay?**
-- **`lista[0].hecha`** — acceder a un dato de un objeto en una lista (3 intentos en la
-  sesión 10). Y por qué una propiedad que no existe da `undefined` en vez de fallar.
-- **`return` sin agarrar el resultado.** Apareció en seis clases distintas.
-- **Definir una función no la ejecuta.** Volvió a pasar con `dibujar()`.
-- **Todo lo que viene de la terminal es texto.**
-- `map` vs `forEach`. Anidar. La constante vs el texto suelto.
+- **Anidado:** sigue metiendo bloques adentro del lugar equivocado.
+- `lista[0].hecha` (3 intentos en la sesión 10). Definir no ejecuta. `map` vs `forEach`.
 
 ## Detalles abiertos
 
+- La lista de `web.js` arranca con dos tareas de prueba escritas a mano (se van en el 7.E).
+- `guardarEnNavegador` usa la `lista` global en vez de recibirla por parámetro. Aceptable
+  en una cáscara; se le señaló.
 - `"agregar"` está en la constante **y** a mano en el mensaje del `else` de `asistente.js`.
 - `completar` y `eliminar` llaman a `guardar` siempre, incluso con número inválido.
 - `cargarTareas` mezcla hacer con devolver, y su mensaje dice `tareas.json` a mano.
-- Los parámetros de ruta se llaman distinto en `guardar` (`archivo`) y `cargarTareas`
-  (`archivoTareas`).
-- Los dos tests de formato de `listarTareas` comparan el texto exacto: frágiles ante un
-  cambio de espaciado (se le avisó).
-- **La web todavía no persiste nada** (eso es el 7.E).
+- Los parámetros de ruta se llaman distinto en `guardar` y `cargarTareas`.
+- Los dos tests de formato de `listarTareas` comparan el texto exacto: frágiles.
+- **Nada de la web está cubierto por tests** (los catorce cubren la lógica).
 
 ## Recordatorio
 

@@ -1,8 +1,8 @@
 # Revisión — Clase 7 (parcial)
 
-**Fecha:** 2026-10-28 (sesión 11)
-**Estado:** **7.A y 7.B cerrados. 7.C casi.** Faltan 7.D, 7.E y 7.F.
-**Trece tests en verde.**
+**Fecha:** 2026-10-28 y 2026-11-02 (sesiones 11 y 12)
+**Estado:** 7.A a 7.E cerrados. **Falta solo 7.F (Tailwind)** y las preguntas de cierre.
+**Catorce tests en verde.**
 
 ## Lo que entregó
 
@@ -75,3 +75,98 @@ ninguno: el test existente pasa un texto con contenido. **Verificar antes de ant
 2. **7.D:** botones de completar y eliminar por tarea (`createElement`, `appendChild`).
 3. **7.E:** `localStorage`.
 4. **7.F:** Tailwind.
+
+---
+
+## Sesión 12 (2026-11-02) — 7.C y 7.D cerrados, 7.E arrancado
+
+**Estado:** 7.A a 7.D cerrados. **7.E en curso.** Falta 7.F (Tailwind).
+**Catorce tests en verde.**
+
+### Lo que cerró el 7.C
+
+- `web.js` ahora agarra el mensaje que devuelve `agregarTarea` y lo muestra con `alert`.
+  Antes, con el input vacío, no agregaba **y no avisaba nada**.
+- Escribió el test del texto vacío **solo y bien** (los tres pasos), y después agregó la
+  segunda comprobación (`lista.length === 0`) cuando se le señaló que sin eso el test
+  pasaría aunque la función hiciera el `push`.
+
+### 7.D — los botones por tarea
+
+`dibujar` dejó de usar `listarTareas` y ahora recorre la lista creando, por cada tarea,
+un `div` con su texto y dos botones (`Eliminar` y `Completar`), cada uno con su
+`addEventListener`.
+
+**La pregunta que contestó bien:** *¿`listarTareas` queda al pedo?* → *"No, la sigue
+usando la terminal"*. De ahí salió una distinción fina que vale: las dos interfaces
+comparten las **reglas** (`agregarTarea`, `completarTarea`, `eliminarTarea`), pero no la
+**presentación** — `listarTareas` es el formato de salida de la terminal, y la web tiene
+el suyo.
+
+### Errores del camino
+
+1. **Intentó escribir el mensaje de error a mano** en `web.js`, buscando un `#mensaje`
+   inexistente, y con un `if` que preguntaba por `input.value` **después** de haberlo
+   vaciado. Se le recordó que la función ya produce el mensaje: la cáscara solo lo muestra.
+2. **Juntó las tres líneas de `createElement` en una sola** instrucción inválida
+   (`createElement.appendChild("div", textContent = ...)`). Hubo que mostrarle la forma
+   en tres renglones con el hueco marcado.
+3. **`document.createElement("div")` sin guardar el resultado**, y después usando `div`,
+   que no existía. **Séptima aparición** del valor de retorno descartado.
+4. **`i - 1` en vez de `i + 1`.** Se destrabó con la tabla de las dos numeraciones
+   (`forEach` 0,1,2 / usuario 1,2,3).
+5. **El bloque del botón de completar quedó adentro del listener de eliminar.** Anidado,
+   otra vez: la cosa correcta en el lugar equivocado. Y `botonEliminar.textContent =
+   "Completar"`, con la variable equivocada.
+6. **`)}` en vez de `})`**, y un cierre de más/de menos al final de `dibujar`.
+7. Una coma suelta (`},`) que rompía el archivo entero.
+
+### Preguntas suyas que valieron
+
+- *"¿Por qué funcionó?"* sobre `const mensaje =` partido en dos renglones. Se le explicó
+  que a JS no le importan los saltos de línea: lee hasta que la instrucción está completa.
+- *"¿Por qué `divlista`?"* — buena pregunta sobre el segundo argumento de `appendChild`.
+
+### Dónde quedó
+
+Escribió `guardarEnNavegador` con `localStorage.setItem` y `JSON.stringify`. Le falta
+**llamarla en los tres handlers** y después la otra mitad: **cargar** al abrir la página.
+
+---
+
+## 7.E cerrado (sesión 12, final)
+
+`localStorage` funcionando: las tareas sobreviven al recargar y la página arranca vacía
+la primera vez.
+
+- `guardarEnNavegador()` con `setItem` + `JSON.stringify`, llamada en los tres puntos
+  donde la lista cambia.
+- `cargarDesdeNavegador()` con la misma forma que `cargarTareas` de la Clase 2: un `if`
+  con dos `return` (lista vacía si `getItem` da `null`, `JSON.parse` si hay algo).
+- `const lista = cargarDesdeNavegador()` reemplazó las dos tareas de prueba escritas a
+  mano. No hizo falta `let`: las funciones de la lógica modifican la lista en el lugar.
+
+### El autocompletado metiendo código que no entiende
+
+Primero escribió `lista.length = 0` y `push(...JSON.parse(...))`. Al preguntarle qué
+hacían, dijo que `length` **"revisa si la lista tiene elementos"** — o sea, no lo sabía, y
+el spread no lo mencionó. **Dijo la verdad cuando se le preguntó**, que es lo importante.
+
+Se reemplazó por la forma de `cargarTareas`, que sí entiende. Y quedó la regla:
+**preguntarle qué hace cualquier sintaxis que no se le enseñó, antes de seguir.**
+
+### Errores del camino
+
+1. **`if (listaGuardada = null)`** — un solo `=`: asigna en vez de comparar. El error de
+   la Clase 1. Hizo falta señalárselo dos veces.
+2. Un `if` de más envolviendo el que valía (resto de un intento previo).
+3. **El bug de orden**, el más instructivo: llamaba a `guardarEnNavegador()` **antes** de
+   la función de lógica en dos de los tres handlers, así que guardaba el estado anterior
+   al cambio. La rama de eliminar sí estaba bien, lo que servía de contraste.
+4. Una llamada suelta a `cargarDesdeNavegador()` con el resultado descartado (**octava
+   aparición** del tema).
+
+### Lo que falta de la clase
+
+**Solo el 7.F: Tailwind.** Sin indicaciones, es su terreno. Y después las cuatro preguntas
+de cierre del enunciado.

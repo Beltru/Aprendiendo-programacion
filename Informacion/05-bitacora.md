@@ -3,6 +3,67 @@
 Orden cronológico. La entrada más nueva va **arriba**.
 
 ---
+## 2026-11-02 — Sesión 12: Clase 7, pasos 7.C y 7.D cerrados
+
+**Qué pasó**
+
+Cerró el 7.C (mostrar el mensaje que devuelve la lógica + su test) y el **7.D entero**:
+cada tarea tiene ahora su `div` con dos botones, `Eliminar` y `Completar`, con sus
+eventos. **El asistente ya se usa completo con el mouse.** Catorce tests en verde.
+Arrancó el 7.E (`localStorage`): escribió `guardarEnNavegador`, falta llamarla y cargar.
+
+**Cerró también el 7.E**: `localStorage` andando, las tareas sobreviven al recargar y
+la página arranca vacía la primera vez. Falta solo Tailwind (7.F).
+
+**Dos cosas de esta sesión que valen más que el código:**
+
+1. **El autocompletado le metió código que no entendía** (`lista.length = 0`,
+   `push(...JSON.parse(...))`). Al preguntarle qué hacían, **dijo la verdad**: creía que
+   `length` "revisa si la lista tiene elementos". Se reemplazó por la forma que sí
+   entiende. **Regla: preguntarle qué hace toda sintaxis que no se le enseñó.**
+2. **El bug de orden en el guardado** — llamaba a `guardarEnNavegador()` antes de la
+   función de lógica, así que guardaba el estado anterior. Lo bueno: una de las tres
+   ramas estaba bien, y ese contraste hizo el diagnóstico evidente.
+
+También: `if (listaGuardada = null)` con un solo `=`. Hubo que señalárselo dos veces.
+
+Detalle en `Clases/07-interfaz-web/REVISION.md`.
+
+**La distinción fina que salió de una pregunta suya**
+
+Se le preguntó si `listarTareas` quedaba inútil al dejar de usarla la web. Contestó:
+*"No, la sigue usando la terminal"*. De ahí: las dos interfaces comparten las **reglas**,
+pero no la **presentación**. `listarTareas` es el formato de salida de la terminal; la web
+tiene el suyo. Útil para matizar la idea de la Clase 6.
+
+**Lo que está mejorando**
+
+- Escribió el test del texto vacío solo, con los tres pasos bien.
+- Hizo preguntas buenas sobre el **por qué**, no solo sobre el cómo (por qué funciona una
+  instrucción partida en dos renglones; por qué `divlista` va como contenedor en
+  `appendChild`).
+- Dedujo solo, con una tabla, la conversión entre la numeración del `forEach` y la del
+  usuario.
+
+**Lo que se repite y hay que atacar**
+
+- **El valor de retorno descartado: séptima aparición** (`document.createElement` sin
+  guardar). Vale hacer un ejercicio dedicado en `practica/` si vuelve a pasar.
+- **Anidado:** metió el bloque del botón de completar adentro del listener de eliminar.
+- **Cierres de bloque** (`)}` en vez de `})`, comas sueltas, cierres faltantes): sigue
+  siendo su error estructural más frecuente. Conviene insistirle con
+  `Shift + Alt + F` para formatear y ver la estructura.
+- **Tiende a escribir a mano lo que el código ya produce** (quiso hardcodear el mensaje de
+  error en la cáscara). Recordarle: el mensaje sale de un solo lugar.
+
+**Lo que mejor funciona para destrabarlo (confirmado otra vez)**
+
+Tablas comparativas (las dos numeraciones), señalarle que algo ya lo escribió él **con
+archivo y línea**, y la forma genérica con el hueco marcado cuando junta varias
+instrucciones en una.
+
+---
+
 ## 2026-10-28 — Sesión 11: Clase 7 (interfaz web), 7.A a 7.C
 
 **Qué pasó**

@@ -59,3 +59,10 @@ test ("Escribe las tareas en el formato correcto cuando hay tareas hechas", () =
     const mensaje = listarTareas (lista)
     assert.equal(mensaje, " 1. Tarea 1 [✓]\n 2. Tarea 2 [ ]")     
 })
+
+test ("No se puede agregar una tarea vacía", () => {
+    const lista = []
+    const mensaje = agregarTarea (lista, "")
+    assert.equal(mensaje, "No se puede agregar una tarea vacía")
+    assert.equal(lista.length, 0)
+})

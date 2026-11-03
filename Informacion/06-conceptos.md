@@ -214,3 +214,29 @@ que algo lo sabe porque "ya lo vio".
 - Si una regla está escrita en las dos cáscaras, ¿qué problema hay?
 - ¿Por qué `texto === ""` no alcanzaba para la terminal?
 - ¿Qué pasa si el `id` del HTML no coincide con el del `querySelector`?
+
+## Clase 7 — sesión 12
+
+| Concepto | Estado | Visto en |
+|---|---|---|
+| `createElement` → `textContent` → `appendChild` (crear, llenar, colgar) | flojo | Clase 7 (7.D) |
+| `appendChild` necesita saber adentro de qué contenedor | flojo | Clase 7 (7.D) |
+| Un evento por elemento, creado dentro del `forEach` | flojo | Clase 7 (7.D) |
+| Convertir `i` del `forEach` al número del usuario (`i + 1`) | flojo | Clase 7 (7.D) |
+| Redibujar todo en vez de parchear | flojo | Clase 7 (7.D) |
+| Los saltos de línea no cortan una instrucción en JS | **firme** (preguntó él) | Clase 7 |
+| Las reglas se comparten; la presentación es de cada cáscara | **firme** (lo dedujo) | Clase 7 (7.D) |
+| El mensaje lo produce la lógica; la cáscara solo lo muestra | flojo | Clase 7 (7.C) |
+| `localStorage.setItem` + `JSON.stringify` | flojo | Clase 7 (7.E) |
+
+## Más preguntas para repreguntar
+
+- ¿Por qué `createElement` solo no hace que el elemento aparezca?
+- ¿Por qué `i + 1` y no `i - 1`?
+- Si `listarTareas` ya no la usa la web, ¿para qué sigue existiendo?
+- ¿Por qué el mensaje de error no se escribe a mano en `web.js`?
+| `localStorage.getItem` da `null` si no hay nada | **firme** | Clase 7 (7.E) |
+| Primero cambiar, después guardar (orden) | flojo (bug de orden) | Clase 7 (7.E) |
+| `=` asigna, `===` compara | flojo (**reincidente**, Clase 1) | Clase 7 (7.E) |
+| `lista.length = 0` vacía la lista (no la consulta) | flojo (lo usó sin saber) | Clase 7 (7.E) |
+| El spread `...` desarma una lista en elementos sueltos | pendiente | Clase 7 (7.E) |
