@@ -170,3 +170,48 @@ Se reemplazó por la forma de `cargarTareas`, que sí entiende. Y quedó la regl
 
 **Solo el 7.F: Tailwind.** Sin indicaciones, es su terreno. Y después las cuatro preguntas
 de cierre del enunciado.
+
+---
+
+## Cierre de la Clase 7 — sesión 13 (2026-11-09)
+
+**7.F hecho y las cuatro preguntas contestadas. Clase 7 cerrada.**
+
+### El diseño
+
+Lo hizo solo y con soltura: `bg-gray-900`, un contenedor `flex flex-col items-center
+justify-center min-h-screen`, el input con `w-[25vw]`, la lista con `max-h-[50vh]
+overflow-y-auto`, y botones rojo/verde para eliminar y completar. Se nota que Tailwind es
+su terreno.
+
+Lo que sí costó fue **dónde** van las clases:
+
+- Escribió `divlista.className("clase", "otra", ...)`: `className` como función y con
+  varios argumentos. Se le explicó que es una **propiedad** (va con `=`) y recibe **un
+  solo texto**. (Su instinto no era absurdo: `classList.add` sí recibe varios.)
+- Después, corregida la sintaxis, siguió apuntando a `divlista` (el contenedor del HTML)
+  en vez de `div` (el renglón de cada tarea). La distinción contenedor / elemento repetido
+  le costó dos intentos.
+
+### Las cuatro preguntas
+
+1. **Por qué `logica.js` corre en los dos lados.** No se acordaba; con una pista (el error
+   de CORS, la primera línea de cada archivo) llegó: *"Almacenamiento importa fs de node y
+   logica.js no"*. Bien.
+2. **Cuántos lugares toca al cambiar una regla.** *"Solo logica.js"*. Bien, y ya lo había
+   comprobado en vivo con la regla del texto vacío.
+3. **Por qué la consola necesita disco y la web no tanto.** Acertó la mitad de la consola
+   (arranca de cero cada vez), pero contestó la web con `localStorage`. **Le faltaba el
+   matiz:** la página **queda viva** esperando clics, así que la lista en memoria sobrevive
+   entre uno y otro; `localStorage` solo hace falta para sobrevivir al F5.
+4. **Qué cubren sus tests de la versión web.** Contestó *"la interacción del usuario y la
+   escritura de la lista"* — **exactamente lo contrario**. Se le mostró con una tabla: los
+   tests cubren las reglas, y nada de `web.js`. Se conectó con el bug de orden del
+   `guardarEnNavegador`, que ningún test detectó porque vivía en la cáscara.
+
+### Para repreguntar
+
+Las respuestas 3 y 4 salieron mal o a medias. Volver sobre las dos:
+
+- *¿Por qué entre un clic y otro no hace falta guardar nada?*
+- *¿Cuál de tus archivos no tiene ni un test?*

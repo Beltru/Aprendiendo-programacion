@@ -3,6 +3,37 @@
 Orden cronológico. La entrada más nueva va **arriba**.
 
 ---
+## 2026-11-09 — Sesión 13: Clase 7 cerrada (Tailwind + preguntas)
+
+**Qué pasó**
+
+Hizo el 7.F y contestó las cuatro preguntas. **Clase 7 cerrada.** El asistente tiene una
+interfaz web con diseño propio, y comparte toda la lógica con la versión de terminal.
+Catorce tests en verde.
+
+El diseño lo hizo solo y con soltura — Tailwind es su terreno, como se esperaba. Lo que
+costó fue **dónde** van las clases: `className` como función y con varios argumentos
+(es propiedad y recibe un solo texto), y después apuntando al contenedor en vez de al
+elemento de cada tarea.
+
+**Las dos preguntas que salieron mal, y hay que repreguntar**
+
+- **Por qué la web no necesita guardar entre clic y clic.** Contestó `localStorage`, pero
+  el punto era otro: **la página queda viva**, así que la lista en memoria sobrevive. El
+  `localStorage` es solo para el F5. Es el cambio de mentalidad más grande entre las dos
+  interfaces y no lo tiene firme.
+- **Qué cubren sus tests de la versión web.** Dijo "la interacción del usuario y la
+  escritura de la lista" — **exactamente lo contrario**. Los tests cubren las reglas;
+  `web.js` no tiene ni uno. Se le mostró con una tabla y se conectó con el bug de orden
+  del `guardarEnNavegador`, que ningún test detectó.
+
+**Lo que sí quedó firme**
+
+Por qué `logica.js` corre en los dos lados y `almacenamiento.js` no (llegó con una pista),
+y que una regla en la lógica se cambia en un solo lugar (eso lo había comprobado en vivo).
+
+---
+
 ## 2026-11-02 — Sesión 12: Clase 7, pasos 7.C y 7.D cerrados
 
 **Qué pasó**

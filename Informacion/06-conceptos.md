@@ -240,3 +240,21 @@ que algo lo sabe porque "ya lo vio".
 | `=` asigna, `===` compara | flojo (**reincidente**, Clase 1) | Clase 7 (7.E) |
 | `lista.length = 0` vacía la lista (no la consulta) | flojo (lo usó sin saber) | Clase 7 (7.E) |
 | El spread `...` desarma una lista en elementos sueltos | pendiente | Clase 7 (7.E) |
+
+## Clase 7 — cierre (sesión 13)
+
+| Concepto | Estado | Visto en |
+|---|---|---|
+| Tailwind: clases en el HTML vs `className` desde el JS | flojo | Clase 7 (7.F) |
+| `className` es propiedad (`=`) y recibe un solo texto | flojo | Clase 7 (7.F) |
+| Contenedor vs elemento repetido (`divlista` vs `div`) | flojo (2 intentos) | Clase 7 (7.F) |
+| Un módulo sin dependencias corre en cualquier lado | **firme** | Clase 7 (preg. 1) |
+| Una regla en la lógica se cambia en un solo lugar | **firme** | Clase 7 (preg. 2) |
+| Una página **queda viva**; un programa de consola muere | flojo (**contestó mal**) | Clase 7 (preg. 3) |
+| Qué cubren los tests y qué no | flojo (**contestó al revés**) | Clase 7 (preg. 4) |
+
+## Más preguntas para repreguntar
+
+- ¿Por qué entre un clic y otro la página no necesita guardar nada?
+- ¿Cuál de tus archivos no tiene ni un test? ¿Y qué bug se te escapó por eso?
+- ¿`className` lleva paréntesis o `=`?
