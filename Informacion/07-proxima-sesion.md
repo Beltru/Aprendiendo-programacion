@@ -2,97 +2,93 @@
 
 > Se reescribe entero al final de cada sesión. Es la foto de dónde estamos.
 
-**Última actualización:** 2026-11-09 (sesión 13)
+**Última actualización:** 2026-11-16 (sesión 14)
 
 ## Dónde estamos
 
-**Clases 1 a 7 cerradas.** El asistente tiene **dos interfaces completas y una sola
-lógica**:
+**Clases 1 a 7 cerradas. Clase 8 (limpieza) en curso: 8.A y 8.B cerrados, 8.C empezado.**
+
+**PC nueva:** el repo está en `C:\dev\Aprendiendo-programacion`, con Node v26.13.1, git
+2.56 y Live Server. Anda todo. `tareas.json` está en `.gitignore`, así que en esta PC la
+terminal arrancó sin tareas.
 
     Asistente/
-      logica.js          ← 5 funciones puras, CERO imports. Corre en Node y en el navegador.
-      almacenamiento.js  ← guardar / cargarTareas con fs. Solo Node.
-      asistente.js       ← cáscara de terminal: 4 comandos.
-      index.html         ← la página "JARVIS", con Tailwind.
-      web.js             ← cáscara de navegador: agregar, completar, eliminar con el mouse,
-                           y localStorage para que sobreviva al F5.
+      logica.js          ← 5 funciones puras, sin imports. Formateado.
+      almacenamiento.js  ← guardar / cargarTareas con fs.
+      asistente.js       ← terminal. NUEVO: const comandos = [...] y el mensaje del
+                           else armado con join (más una ayuda sobre el número).
+      index.html, web.js ← la página con Tailwind + localStorage.
 
-**Catorce tests en verde** (`node --test`). La página se abre con **Live Server**.
+**Catorce tests en verde.** Enunciado y mapa en `Clases/08-limpieza/`.
 
 ## Cómo arrancar la próxima sesión
 
-**Hay que elegir el tema de la Clase 8 con él.** Las opciones, en orden de cercanía al
-Jarvis que quiere (ver `04-proyecto-asistente.md`):
+**Retomar el 8.C**, ver el final de `Clases/08-limpieza/REVISION.md`:
 
-1. **Fechas y prioridades** (etapa 5 del rumbo): comando `editar`, fecha de vencimiento,
-   ordenar y filtrar. Trae `filter`, `sort` y el manejo de fechas. Es lo que más lo acerca
-   a un asistente que use todos los días.
-2. **Que corra solo** (etapa 10, el salto de reactivo a **proactivo**): tareas
-   programadas, avisos. Es el escalón que él más quiere y el que más le cambia el
-   proyecto. Pero necesita que algo quede vivo cuando la compu está apagada, así que
-   aparece el tema de un servidor.
-3. **Limpieza y fuente única** (clase corta, sin tema nuevo): los comandos en una sola
-   estructura, los detalles sueltos de la lista de abajo. Consolida.
+1. Que **borre** `Clases/08-limpieza/practica/otro.json` y vuelva a correr
+   `node Clases/08-limpieza/practica/prueba-carga.js`.
+2. Que **lea el mensaje entero**. Dice `tareas.json` y el archivo creado es `otro.json`:
+   que lo descubra él.
+3. Que decida si `cargarTareas` tiene que imprimir algo, y lo arregle.
 
-Sugerencia: preguntarle cuál le sirve más, como se hizo con la Clase 7 (eligió web y fue
-la mejor decisión hasta ahora).
+Después siguen 8.D (mismo nombre de parámetro en `guardar` y `cargarTareas`), 8.E (¿vale
+la pena guardar solo si cambió algo? Es una pregunta, no necesariamente código) y las
+preguntas de cierre.
 
-**Antes de los pasos, escribir el `EXPLICACION.md` de la clase.**
+**Clase 9, ya conversada:** fechas y prioridades (opción 1). Es la recomendada y la
+siguiente natural después de limpiar.
 
 ## LAS DOS REGLAS AL ENSEÑARLE
 
 1. **Primero el mapa** (`EXPLICACION.md` por clase, que lo lea antes de arrancar).
 2. **Después, un paso corto y verificable por mensaje.**
 
-## Cómo enseñarle — calibrado en sesiones 2 a 13
+## Cómo enseñarle — calibrado en sesiones 2 a 14
 
 1. El mapa antes de los pasos, y un paso por mensaje.
-2. **Mostrarle la consecuencia corriendo el código, no argumentar.** Lo mejor de todo.
-3. **Tablas comparativas.** Lo destraban más rápido que cualquier explicación.
+2. **Mostrarle la consecuencia corriendo el código, no argumentar.** Sesión 14:
+   renombrar `eliminar` a `borrar` hizo que el mensaje se contradijera y lo vio enseguida.
+3. **Tablas comparativas.** Sesión 14: la tabla de posiciones de la lista lo destrabó.
 4. **Señalarle que algo ya lo escribió él, con archivo y línea.**
-5. **Cuando junta instrucciones en una, darle la forma en renglones separados con el hueco
-   marcado** (`???`), nunca la solución.
-6. **Frente a la hoja en blanco: copiar y después quitar.** Nunca "escribí la función".
-7. **Cuando no entiende qué contiene algo, que lo imprima.**
-8. **Preguntarle qué hace cualquier sintaxis que no se le enseñó**, antes de seguir. El
-   autocompletado le mete cosas: en la sesión 12 usó `lista.length = 0` sin saber qué era.
-   **Dice la verdad cuando se le pregunta**, así que preguntar funciona.
-9. **En cada test: "si rompo la función, ¿este test se pone en rojo?"**
-10. **Insistirle con `Shift + Alt + F`.** Sus errores más frecuentes son de cierres de bloque.
-11. **Leer el archivo COMPLETO antes de decirle que algo no cambió**, y **verificar antes
-    de anticipar**. Las dos veces que Claude se equivocó fue por eso.
-12. Para qué sirve antes de cómo se usa. No ofrecerle cortar la sesión (él avisa).
-13. Si dice que está adivinando: ejercicios mínimos en `practica/`, de otro dominio, con
-    predicción obligatoria. Modelo: `Clases/04-funciones/EJERCICIOS-FUNCIONES.md`.
-14. Frustración: nombrarla, no consolarla.
+5. Cuando junta instrucciones en una, darle la forma en renglones separados con el hueco
+   marcado (`???`), nunca la solución.
+6. Frente a la hoja en blanco: copiar y después quitar.
+7. Cuando no entiende qué contiene algo, que lo imprima.
+8. **Preguntarle qué hace cualquier sintaxis que no se le enseñó.** Dice la verdad.
+9. En cada test: "si rompo la función, ¿este test se pone en rojo?"
+10. Insistirle con `Shift + Alt + F`.
+11. **Verificar antes de dar algo por bueno**: correr el comando, mirar el archivo. En la
+    sesión 14 así se detectó que no había probado la terminal, y que Claude había
+    anticipado mal el 8.C (el test llama a `guardar` primero y el mensaje nunca sale).
+12. **NUEVO: pedirle que pegue la salida, no que diga "listo" o "anda todo".**
+13. **NUEVO: no encadenar más de dos preguntas sobre lo mismo.** Si a la segunda no sale,
+    explicar el concepto directo (con tabla) y dejarle el código a él. Las dos
+    frustraciones de la sesión 14 vinieron de darle vueltas.
+14. Para qué sirve antes de cómo se usa. No ofrecerle cortar la sesión (él avisa).
+15. Si dice que está adivinando: ejercicios mínimos en `practica/`, de otro dominio.
+16. Frustración: nombrarla, no consolarla.
 
 ## Para repreguntar sin aviso
 
-Lista completa en `06-conceptos.md`. **Las dos que contestó mal al cerrar la Clase 7:**
+Lista completa en `06-conceptos.md`. Las más urgentes:
 
-- **¿Por qué entre un clic y otro la página no necesita guardar nada?** (Porque queda
-  viva; el `localStorage` es solo para el F5. Contestó `localStorage`.)
-- **¿Cuál de tus archivos no tiene ni un test?** (Contestó al revés: cree que los tests
-  cubren la interacción. Cubren las reglas; `web.js` no tiene ninguno.)
+- **¿Por qué `completar` es mejor que `comandos[3]`?** (Contestó "porque si cambia se
+  cambia en el mensaje", pero eso pasa con las dos. La diferencia es la posición.)
+- **¿Cuál de tus archivos no tiene ni un test?** (Pendiente desde la Clase 7. Hoy dio
+  por probada la terminal sin correrla.)
+- **¿Qué significa `./`? ¿Cómo contás los `../`?** (Reincidente.)
+- `return` sin agarrar el resultado, `=` vs `===`, `lista[0].hecha`, anidado.
 
-Y las de arrastre:
+## Detalles abiertos (los que cubre la Clase 8 se tachan al cerrarlos)
 
-- **`return` sin agarrar el resultado: octava aparición.** Si vuelve a pasar, ejercicio
-  dedicado en `practica/`.
-- **`=` vs `===`** (reincidente de la Clase 1).
-- **`lista[0].hecha`**, acceder a un dato de un objeto en una lista.
-- **Anidado:** sigue metiendo bloques en el lugar equivocado.
-- Definir no ejecuta. `map` vs `forEach`. `className` con `=`, no con paréntesis.
-
-## Detalles abiertos
-
-- `"agregar"` está en la constante **y** a mano en el mensaje del `else` de `asistente.js`.
-- `completar` y `eliminar` llaman a `guardar` siempre, incluso con número inválido.
-- `cargarTareas` mezcla hacer con devolver, y su mensaje dice `tareas.json` a mano.
-- Los parámetros de ruta se llaman distinto en `guardar` y `cargarTareas`.
-- Los dos tests de formato de `listarTareas` comparan el texto exacto: frágiles.
-- **`web.js` no tiene ni un test.** El bug de orden del guardado se le escapó por eso.
-- La web y la terminal guardan en lugares distintos: no comparten tareas.
+- ~~`"agregar"` en la constante y a mano en el `else`~~ → resuelto en 8.B.
+- `cargarTareas` dice `tareas.json` a mano → 8.C.
+- Los parámetros de ruta se llaman distinto en `guardar` y `cargarTareas` → 8.D.
+- `completar` y `eliminar` guardan siempre, incluso con número inválido → 8.E.
+- Los tests de formato de `listarTareas` comparan el texto exacto: frágiles.
+- `web.js` y `asistente.js` no tienen tests.
+- `const indice = i` sobra en los dos listeners de `web.js`.
+- La web y la terminal guardan en lugares distintos (necesita servidor, clase futura).
 
 ## Recordatorio
 

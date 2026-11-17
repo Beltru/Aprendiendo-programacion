@@ -39,3 +39,6 @@ esté firme le ponemos interfaz con Tailwind, y ahí juego de local.
 - git **2.49.0.windows.1**
 - SO: Windows 11. Terminal: PowerShell.
 - Repo: `C:\Users\bako_\Desktop\Aprendiendo-programacion`
+
+**PC nueva (desde 2026-11-16):** Node v26.13.1, git 2.56.0, VS Code 1.146 con Live Server.
+Repo en `C:\dev\Aprendiendo-programacion`. `tareas.json` no viaja con git.

@@ -82,3 +82,24 @@ Se lee: *"si la condición es verdadera, dame lo primero; si no, lo segundo"*. S
 adentro de un template string, donde no entra un `if`:
 
     `${tarea.hecha ? "[x]" : "[ ]"} ${tarea.texto}`
+
+## 4. Lista de valores sueltos (Clase 8)
+
+Una lista no tiene por qué llevar objetos. Puede llevar textos, números, o **variables**:
+
+    const frutas = ["manzana", "pera", "uva"]
+
+    const a = "rojo"
+    const b = "azul"
+    const colores = [a, b]       // ["rojo", "azul"] — sin comillas: usa lo que vale cada variable
+
+## 5. Pegar una lista en un texto con `join`
+
+`join` pega todos los elementos usando el separador que le pases:
+
+    frutas.join("\n")     // "manzana\npera\nuva"   (uno por renglón)
+    frutas.join(" - ")    // "manzana - pera - uva"
+    frutas.join("")       // "manzanaperauva"
+
+`join` **devuelve** un texto nuevo; no cambia la lista. Si no lo guardás o no lo usás
+ahí mismo, se pierde.

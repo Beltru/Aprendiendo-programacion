@@ -258,3 +258,25 @@ que algo lo sabe porque "ya lo vio".
 - ¿Por qué entre un clic y otro la página no necesita guardar nada?
 - ¿Cuál de tus archivos no tiene ni un test? ¿Y qué bug se te escapó por eso?
 - ¿`className` lleva paréntesis o `=`?
+
+## Clase 8 — limpieza (sesión 14)
+
+| Concepto | Estado | Visto en |
+|---|---|---|
+| Una página queda viva; la terminal arranca de cero en cada comando | flojo → casi firme (lo dijo bien después de la explicación) | Clase 7 / sesión 14 |
+| El formateador cambia más que espacios (`;`, comillas, paréntesis) | flojo | Clase 8 (8.A) |
+| `return` no es función: `return(x)` = `return x` | **firme** | Clase 8 (8.A) |
+| Lo que no tiene tests se prueba a mano, **siempre** | flojo (**dijo "anda todo" sin probar**) | Clase 8 (8.A) |
+| Fuente única: cada dato escrito una sola vez | flojo (lo aplicó y lo volvió a romper en la frase nueva) | Clase 8 (8.B) |
+| Lista de constantes + `join(", ")` | flojo | Clase 8 (8.B) |
+| Una posición (`lista[3]`) dice dónde está algo, no qué es | flojo (**motivo equivocado al cerrar**) | Clase 8 (8.B) |
+| `+` para pegar textos | **firme** (dice que ya lo sabía) | Clase 8 (8.B) |
+| Rutas relativas: `./` es "esta carpeta", contar `../` | flojo (**reincidente**, Clase 5) | Clase 8 (8.C) |
+| Un `import` sin usar no rompe, pero confunde | flojo | Clase 8 (8.C) |
+
+## Más preguntas para repreguntar
+
+- ¿Por qué `completar` es mejor que `comandos[3]`, si renombrando cambian los dos?
+- ¿Qué significa `./` en una ruta? ¿Y `././`?
+- Tocaste `asistente.js`. ¿Qué te avisa si lo rompiste?
+- ¿El formateador puede cambiar lo que hace el programa? ¿Cómo lo comprobás?

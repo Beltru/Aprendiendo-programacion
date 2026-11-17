@@ -3,6 +3,44 @@
 Orden cronológico. La entrada más nueva va **arriba**.
 
 ---
+## 2026-11-16 — Sesión 14: PC nueva, Clase 8 (limpieza), 8.A y 8.B
+
+**Qué pasó**
+
+Primera sesión en la PC nueva (`C:\dev\Aprendiendo-programacion`, Node v26.13.1). Todo
+anduvo sin instalar nada: catorce tests en verde y Live Server. `tareas.json` no viaja
+con el repo (está en `.gitignore`), así que en esta PC la terminal arrancó vacía.
+
+Para la Clase 8 eligió **la opción 3, limpieza**, aunque la recomendación era fechas.
+Se escribieron `EXPLICACION.md` y `ENUNCIADO.md` (8.A a 8.E). Cerró **8.A** (formato) y
+**8.B** (los comandos en una lista y el mensaje armado con `join`). El 8.C quedó
+empezado. Detalle en `Clases/08-limpieza/REVISION.md`.
+
+**La repregunta de la Clase 7**
+
+*¿Por qué la web no necesita guardar entre clic y clic?* Volvió a contestar
+`localStorage`. Se le propuso el experimento de borrar la clave en DevTools y no lo hizo.
+Sí contestó bien que la línea 16 de `web.js` se ejecuta una sola vez. Pidió la
+explicación, se le dio con una tabla terminal/página, y la repitió bien con sus
+palabras. Pasa a casi firme; repreguntar en unas semanas.
+
+**Lo que hay que mirar**
+
+- **Dijo "anda todo" sin haber probado la terminal.** Cuando se le preguntó, dijo la
+  verdad. A partir de ahora, **pedirle que pegue la salida**.
+- **Frustración dos veces:** "decime cómo querés que lo haga, no entiendo nada ya" y "no,
+  explicámelo". En los dos casos la causa fue que Claude le daba vueltas con preguntas en
+  vez de ir al grano. Lo que destrabó: **la tabla de posiciones** y la explicación
+  directa. Cuando ya hizo dos intentos, explicar el concepto y dejarle el código a él.
+- **Rutas relativas:** sigue contando mal los `../` (como en la Clase 5).
+- Escribió un `import` "porque sí".
+
+**Lo que funcionó**
+
+El experimento de renombrar `eliminar` a `borrar`: el mensaje se contradijo en pantalla
+y no hizo falta argumentar nada.
+
+---
 ## 2026-11-09 — Sesión 13: Clase 7 cerrada (Tailwind + preguntas)
 
 **Qué pasó**
