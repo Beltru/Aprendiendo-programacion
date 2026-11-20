@@ -3,6 +3,32 @@
 Orden cronológico. La entrada más nueva va **arriba**.
 
 ---
+## 2026-11-19 — Sesión 15: Clase 8 cerrada
+
+**Qué pasó**
+
+Hizo el 8.C (el mensaje de `cargarTareas` ahora dice el archivo real), el 8.D (mismo
+nombre de parámetro en `guardar` y `cargarTareas`), el 8.E (decidió no tocar el guardado
+y supo por qué) y contestó las cuatro preguntas. **Clase 8 cerrada.** Catorce tests en
+verde. Detalle en `Clases/08-limpieza/REVISION.md`.
+
+**Repaso del arranque:** *¿por qué `completar` y no `comandos[3]`?* "No me acuerdo." Se le
+recordó con la tabla de posiciones. Sigue flojo.
+
+**Lo mejor de la sesión:** *"¿`node --test` se pone en rojo si rompés `asistente.js`?
+No, porque no tiene tests."* Era la pregunta que había contestado al revés en la Clase 7.
+
+**Lo que hay que mirar**
+
+- **No se acuerda de los términos** ("refactor") aunque los use. Con una pista llega.
+- **Las preguntas abstractas lo traban y lo fastidian** ("son medio raras las preguntas").
+  Concretas, con un caso de su código, las contesta bien enseguida.
+- Vuelve a decir "listo" o "ya lo hice" sin verificar: no había borrado `otro.json`.
+  Pedirle la salida sigue siendo necesario.
+- **Lo bueno:** las dos decisiones de diseño (8.C y 8.E) las tomó con motivo, y aceptó el
+  costo de cada una.
+
+---
 ## 2026-11-16 — Sesión 14: PC nueva, Clase 8 (limpieza), 8.A y 8.B
 
 **Qué pasó**

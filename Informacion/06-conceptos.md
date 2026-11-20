@@ -280,3 +280,23 @@ que algo lo sabe porque "ya lo vio".
 - ¿Qué significa `./` en una ruta? ¿Y `././`?
 - Tocaste `asistente.js`. ¿Qué te avisa si lo rompiste?
 - ¿El formateador puede cambiar lo que hace el programa? ¿Cómo lo comprobás?
+
+## Clase 8 — cierre (sesión 15)
+
+| Concepto | Estado | Visto en |
+|---|---|---|
+| Un mensaje escrito a mano puede mentir; usar el dato real | **firme** (lo descubrió leyendo) | Clase 8 (8.C) |
+| `+` no agrega espacios entre textos | flojo | Clase 8 (8.C) |
+| Elegir entre dos opciones razonables y decir qué se pierde | **firme** (8.C y 8.E) | Clase 8 |
+| El parámetro solo existe adentro; se pasa el valor, no el nombre | flojo (**"porque son funciones"**) | Clases 4 y 8 (8.D) |
+| Costo vs beneficio: no todo se arregla | **firme** | Clase 8 (8.E) |
+| Qué es un refactor | flojo (**no recordaba el término**) | Clase 8 (preg. 1) |
+| Qué cubren los tests (`asistente.js` no tiene) | **firme** (por fin) | Clases 7 y 8 (preg. 2) |
+| Dato en dos lugares → se contradicen en silencio | **firme** | Clase 8 (preg. 3) |
+| Posición (`lista[3]`) vs nombre | flojo (**no se acordó al repreguntar**) | Clase 8 |
+
+## Más preguntas para repreguntar
+
+- ¿Qué es un refactor? (Dárselo con un caso: "si cambiás X y el usuario no nota nada...")
+- Si en `asistente.js` la variable se llamara `ruta`, ¿`guardar` seguiría andando? ¿Por qué?
+- ¿Por qué no conviene comparar el mensaje para saber si una tarea se completó?

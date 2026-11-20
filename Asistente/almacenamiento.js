@@ -1,14 +1,14 @@
 import fs from "node:fs";
 
-export function guardar(tareas, archivo) {
-  fs.writeFileSync(archivo, JSON.stringify(tareas), "utf-8");
+export function guardar(tareas, archivoTareas) {
+  fs.writeFileSync(archivoTareas, JSON.stringify(tareas), "utf-8");
 }
 
 export function cargarTareas(archivoTareas) {
   const existe = fs.existsSync(archivoTareas);
   if (existe === false) {
     fs.writeFileSync(archivoTareas, "[]", "utf-8");
-    console.log("Se creo el archivo tareas.json");
+    console.log("Se creo el archivo " + archivoTareas);
   }
 
   const texto = fs.readFileSync(archivoTareas, "utf-8");
