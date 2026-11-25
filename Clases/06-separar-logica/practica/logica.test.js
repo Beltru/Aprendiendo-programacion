@@ -66,3 +66,9 @@ test ("No se puede agregar una tarea vacía", () => {
     assert.equal(mensaje, "No se puede agregar una tarea vacía")
     assert.equal(lista.length, 0)
 })
+
+test ("Fechas", () => {
+    const lista = []
+    agregarTarea (lista, "Tarea 1", "2026-12-01")
+    assert.equal(lista[0].fecha, "2026-12-01")
+})

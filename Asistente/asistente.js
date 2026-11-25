@@ -19,7 +19,7 @@ const tareas = cargarTareas(archivoTareas);
 const comandos = [agregar, listar, eliminar, completar];
 
 if (process.argv[2] === agregar) {
-  const mensaje = agregarTarea(tareas, process.argv[3]);
+  const mensaje = agregarTarea(tareas, process.argv[3], process.argv[4]);
   guardar(tareas, archivoTareas);
 
   console.log(mensaje);

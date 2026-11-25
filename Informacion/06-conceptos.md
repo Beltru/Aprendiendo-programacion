@@ -300,3 +300,26 @@ que algo lo sabe porque "ya lo vio".
 - ¿Qué es un refactor? (Dárselo con un caso: "si cambiás X y el usuario no nota nada...")
 - Si en `asistente.js` la variable se llamara `ruta`, ¿`guardar` seguiría andando? ¿Por qué?
 - ¿Por qué no conviene comparar el mensaje para saber si una tarea se completó?
+
+## Clase 9 — fechas (sesión 16)
+
+| Concepto | Estado | Visto en |
+|---|---|---|
+| `new Date("AAAA-MM-DD")` se lee en hora de Londres (da el día anterior) | flojo (lo vio, se lo explicaron) | Clase 9 (9.A) |
+| JSON convierte un `Date` en texto; vuelve como `string` | flojo | Clase 9 (9.A) |
+| JS no reconoce una fecha por cómo se ve (`1/12/26` es una división) | flojo (**3 intentos**) | Clase 9 (9.A) |
+| Textos se comparan letra por letra → fechas con ceros | flojo | Clase 9 (9.A) |
+| Fecha de hoy con `toLocaleDateString("sv-SE")`, en variable | **firme** (lo guardó en variable solo) | Clase 9 (9.A) |
+| `typeof` | flojo | Clase 9 (9.A) |
+| `process.argv`: `[0]` y `[1]` son Node y la ruta | flojo (**"no recordaba que contaban"**) | Clases 1 y 9 |
+| Agregar un parámetro y un dato nuevo al objeto | **firme** | Clase 9 (9.B) |
+| Propiedad faltante → `undefined`; `JSON.stringify` no la escribe | flojo | Clase 9 (9.B) |
+| Un test nuevo para el dato nuevo, y romper para ver el rojo | flojo (necesitó tabla) | Clase 9 (9.B) |
+| Ternario para mostrar algo según si existe | flojo (**lo sacó solo al final**, tras trabarse) | Clase 9 (9.B) |
+| Parámetros: se pasa el valor, no el nombre | flojo (**contestó mal otra vez**) | Clases 4, 8, 9 |
+
+## Más preguntas para repreguntar
+
+- ¿Por qué guardamos la fecha como texto y no como `Date`?
+- ¿Qué devuelve `new Date("2026-12-01").getDate()` en Argentina, y por qué?
+- ¿En qué posición de `process.argv` llega la fecha en `agregar "x" 2026-12-01`?

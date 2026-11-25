@@ -2,11 +2,11 @@ export function estaEnRango(numero, cantidad) {
   return numero >= 1 && numero <= cantidad && Number.isInteger(numero);
 }
 
-export function agregarTarea(tareas, texto) {
+export function agregarTarea(tareas, texto, fecha) {
   if (texto === "" || texto === undefined) {
     return "No se puede agregar una tarea vacía";
   } else {
-    tareas.push({ texto: texto, hecha: false });
+    tareas.push({ texto: texto, hecha: false, fecha: fecha });
     return "Se agrego una nueva tarea";
   }
 }
@@ -35,7 +35,7 @@ export function listarTareas(tareas) {
   } else {
     return tareas
       .map((t, i) => {
-        return ` ${i + 1}. ${t.texto} ${t.hecha ? "[✓]" : "[ ]"}`;
+        return ` ${i + 1}. ${t.texto} (${t.fecha === undefined ? "Sin fecha" : t.fecha}) ${t.hecha ? "[✓]" : "[ ]"}`;
       })
       .join("\n");
   }

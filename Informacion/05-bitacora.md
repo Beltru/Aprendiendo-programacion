@@ -3,6 +3,50 @@
 Orden cronológico. La entrada más nueva va **arriba**.
 
 ---
+## 2026-11-24 — Sesión 16: Clase 9 (fechas), 9.A y casi todo 9.B
+
+**Qué pasó**
+
+Eligió **fechas y prioridades**. Se escribieron `Clases/09-fechas/EXPLICACION.md`,
+`ENUNCIADO.md` (9.A a 9.G) y `Referencia/09-fechas-filtros-orden.md`.
+
+- **9.A cerrado:** vio en su pantalla que `new Date("2026-12-01").getDate()` da 30 (zona
+  horaria), que un `Date` pasado por JSON vuelve como `string`, y que `"2026-2-1" <
+  "2026-10-01"` da `false`. Decisión: **la fecha se guarda como texto `AAAA-MM-DD`**.
+- **9.B casi cerrado:** `agregarTarea(tareas, texto, fecha)`, la cáscara pasa
+  `process.argv[4]`, test nuevo `"Fechas"` que se pone en rojo si se rompe (lo comprobó).
+  `tareas.json` ya guarda fechas y las tareas viejas sin fecha conviven bien.
+- **Mostrar la fecha en `listar`:** se trabó fuerte con el ternario + template anidado.
+  Al final, **lo resolvió solo**: primero escribió solo la condición (imprimía
+  `true`/`false`), después le agregó `? "Sin fecha" : t.fecha`. Eligió mostrar "Sin fecha"
+  y con eso esquivó el anidado. Quedaron en rojo los 2 tests de formato (esperable):
+  actualizarlos es lo primero de la próxima.
+
+**Repaso:** *¿si `archivoTareas` se llamara `ruta`, `guardar` andaría?* Contestó que **no**
+("tiene que dirigir a tareas.json"). **Mal.** Pidió la explicación (el valor viaja, el
+nombre no). Parámetros: sigue flojo. Repreguntar.
+
+**Lo que hay que mirar (sesión difícil)**
+
+- **Valor de retorno descartado: novena aparición** (`new Date(...)` suelto, y
+  `getDate()` sin objeto). Además, `1/12/26` y `1-12-26` como "fechas": no sabía que JS
+  no reconoce una fecha por cómo se ve.
+- **Rechazó las predicciones:** "no me hagas hacer predicciones, quiero hacer los
+  ejercicios". Se respetó. No volver a imponerlas; como mucho, preguntar "¿te sorprendió?"
+  después de correr.
+- **Empezó a adivinar** al final (`(${t.fecha} dia = "")`). Señal de que se le dio
+  demasiado de golpe: un ternario con template string anidado es sintaxis muy enredada.
+- **No quiere mirar la Referencia cuando está apurado** y pidió "el blueprint". Se le negó
+  la línea. Se le dio una tabla de traducción del ejemplo y, al final, la salida limpia de
+  borrar el intento.
+- Copió un test viejo para arrancar (bien) pero no lo adaptó: comparaba el mensaje con el
+  nombre del test. Con la tabla renglón por renglón lo arregló.
+- Sigue diciendo "listo" sin haber corrido lo que se pidió (no rehízo la tarea con fecha).
+
+**Lo que funcionó:** las tablas (las de `process.argv`, `1/12/26` vs `new Date`, y el
+renglón por renglón del test), y leer juntos el `+ actual / - expected` del error.
+
+---
 ## 2026-11-19 — Sesión 15: Clase 8 cerrada
 
 **Qué pasó**
