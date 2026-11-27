@@ -40,3 +40,29 @@ export function listarTareas(tareas) {
       .join("\n");
   }
 }
+
+export function editarTarea(tareas, numero, nuevoTexto) {
+  if (estaEnRango(numero, tareas.length)) {
+    tareas[numero - 1].texto = nuevoTexto;
+    return "Se edito la tarea";
+  } else {
+    return "El número de tarea ingresado no es válido";
+  }
+}
+
+export function filtrarNoHecha(tareas) {
+  const noHecha = tareas.filter((t) => t.hecha === false);
+  return noHecha;
+}
+
+export function listarPendientes(tareas) {
+  const listaPendientes = [];
+  tareas.forEach((t, i) => {
+    if (t.hecha === false) {
+      listaPendientes.push(
+        ` ${i + 1}. ${t.texto} (${t.fecha === undefined ? "Sin fecha" : t.fecha}) ${t.hecha ? "[✓]" : "[ ]"}`,
+      );
+    }
+  });
+  return listaPendientes.join("\n");
+}

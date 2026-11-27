@@ -323,3 +323,26 @@ que algo lo sabe porque "ya lo vio".
 - ¿Por qué guardamos la fecha como texto y no como `Date`?
 - ¿Qué devuelve `new Date("2026-12-01").getDate()` en Argentina, y por qué?
 - ¿En qué posición de `process.argv` llega la fecha en `agregar "x" 2026-12-01`?
+
+## Clase 9 — sesión 17
+
+| Concepto | Estado | Visto en |
+|---|---|---|
+| Actualizar un test de formato copiando el `+ actual` | flojo (necesitó paso a paso) | Clase 9 (9.B) |
+| Reutilizar una función parecida (copiar `completarTarea` → `editarTarea`) | **firme** | Clase 9 (9.C) |
+| La lógica no lee `process.argv`: recibe por parámetro | flojo | Clase 9 (9.C) |
+| Función nueva → sumarla al `import` | flojo (**3 olvidos en una sesión**) | Clase 9 |
+| `filter((t) => condición)` | flojo (la línea le salió bien, la rodeó de un `if` de más) | Clase 9 (9.D) |
+| Condición (`t.hecha === false`) vs dato de objeto (`hecha: false`) | flojo | Clase 9 (9.D) |
+| Una variable de `=>` (`t`) solo existe adentro de esa función | flojo | Clase 9 (9.D) |
+| Número que ve el usuario = número que entiende `completar` | flojo (lo vio con tabla) | Clase 9 (9.D) |
+| Recorrer la lista completa para conservar los números | flojo (lo destrabó una analogía) | Clase 9 (9.D) |
+| Método con objeto adelante (`tareas.forEach`, no `forEach`) | flojo (**reincidente**: `getDate`) | Clase 9 (9.D) |
+| `length` de un texto cuenta caracteres | flojo (**`27 !== 1`**) | Clases 2 y 9 |
+| Parámetros: se pasa el valor, no el nombre | **flojo, prioridad** (usó `nuevoTexto` en el test) | Clases 4, 8, 9 |
+
+## Más preguntas para repreguntar
+
+- ¿Por qué `pendientes` no puede numerar 1, 2, 3?
+- ¿Qué devuelve `filtrarNoHecha` y qué devuelve `listarPendientes`? ¿Qué cuenta el `.length` de cada uno?
+- En el test de editar, ¿por qué `nuevoTexto` daba `ReferenceError`?

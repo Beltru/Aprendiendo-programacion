@@ -1,6 +1,6 @@
 import test from "node:test"
 import assert from "node:assert/strict"
-import { agregarTarea, listarTareas, eliminarTarea, completarTarea } from "../../../Asistente/logica.js"
+import { agregarTarea, listarTareas, eliminarTarea, completarTarea, editarTarea, filtrarNoHecha, listarPendientes } from "../../../Asistente/logica.js"
 
 test ("agregarTarea suma una tarea a la lista", () => {
     const lista = []
@@ -47,7 +47,7 @@ const lista = []
 const tarea1 = agregarTarea (lista, "Tarea 1")
 const tarea2 = agregarTarea (lista, "Tarea 2")
 const mensaje = listarTareas (lista)
-assert.equal(mensaje, " 1. Tarea 1 [ ]\n 2. Tarea 2 [ ]")     
+assert.equal(mensaje, " 1. Tarea 1 (Sin fecha) [ ]\n 2. Tarea 2 (Sin fecha) [ ]")     
 
 })
 
@@ -57,7 +57,7 @@ test ("Escribe las tareas en el formato correcto cuando hay tareas hechas", () =
     const tarea2 = agregarTarea (lista, "Tarea 2")
     completarTarea (lista, 1)
     const mensaje = listarTareas (lista)
-    assert.equal(mensaje, " 1. Tarea 1 [✓]\n 2. Tarea 2 [ ]")     
+    assert.equal(mensaje, " 1. Tarea 1 (Sin fecha) [✓]\n 2. Tarea 2 (Sin fecha) [ ]")     
 })
 
 test ("No se puede agregar una tarea vacía", () => {
@@ -72,3 +72,39 @@ test ("Fechas", () => {
     agregarTarea (lista, "Tarea 1", "2026-12-01")
     assert.equal(lista[0].fecha, "2026-12-01")
 })
+
+ test ("número invalido de tarea a editar", () => {
+     const lista = []
+     const tarea1 = agregarTarea (lista, "Tarea 1")
+     const tarea2 = agregarTarea (lista, "Tarea 2")
+     const mensaje = editarTarea (lista, 3, "Tarea editada")
+     assert.equal(mensaje, "El número de tarea ingresado no es válido")    
+    })
+
+test ("Si dice editar cambia el texto", () => {
+        const lista = []
+        const tarea1 = agregarTarea (lista, "Tarea 1")
+        const tarea2 = agregarTarea (lista, "Tarea 2")
+        const mensaje = editarTarea (lista, 1, "Tarea editada")
+        assert.equal(mensaje, "Se edito la tarea")
+        assert.equal(lista[0].texto, "Tarea editada")
+    })
+
+    test ("Filtrar no hecha solo devuelve las pendientes", () => {
+        const lista = []
+        const tarea1 = agregarTarea (lista, "Tarea 1")
+        const tarea2 = agregarTarea (lista, "Tarea 2")
+        const mensaje = completarTarea (lista, 1)
+        const pendientes = filtrarNoHecha (lista)
+        assert.equal(pendientes.length, 1)
+        assert.equal(pendientes[0].texto, "Tarea 2")
+    })
+
+    test ("Listar pendientes solo muestra las tareas no hechas", () => {
+        const lista = []
+        const tarea1 = agregarTarea (lista, "Tarea 1")
+        const tarea2 = agregarTarea (lista, "Tarea 2")
+        const mensaje = completarTarea (lista, 1)
+        const pendientes = listarPendientes (lista)
+        assert.equal(pendientes, " 2. Tarea 2 (Sin fecha) [ ]")
+    })

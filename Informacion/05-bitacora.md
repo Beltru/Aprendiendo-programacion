@@ -3,6 +3,35 @@
 Orden cronológico. La entrada más nueva va **arriba**.
 
 ---
+## 2026-11-26 — Sesión 17: Clase 9, cierre del 9.B, 9.C y 9.D
+
+**Qué pasó**
+
+Quería terminar la Clase 9 en el día. Cerró el **9.B** (tests de formato actualizados) y el
+**9.C** (`editar` completo, con dos tests; apareció solo en la ayuda). El **9.D** quedó
+cerrado: `pendientes` muestra los números correctos gracias a `listarPendientes`. Su test
+costó (`27 !== 1` por comparar el `length` de un texto, y después un espacio inicial),
+pero terminó en verde: **19 tests**. Detalle en `Clases/09-fechas/REVISION.md`.
+
+**Repaso:** parámetros (`ruta`). Contestó "le llegaría un archivo". Impreciso. Y en la
+misma sesión usó `nuevoTexto` en un test: **el concepto no está**. Ejercicio dedicado.
+
+**Lo que hay que mirar**
+
+- **Sesión de muchos "no entendí".** Las formas con `???` le sirvieron menos que otras
+  veces. Lo que mejor anduvo: **"copiá el test X y cambiá estos renglones" en una lista
+  numerada**, un cambio por mensaje ("primero solo esto"), y decirle la palabra exacta
+  cuando ya fallaron dos intentos.
+- Métodos sin objeto (`forEach` suelto), recorrer la lista equivocada, imports
+  olvidados, cierres de bloque: los mismos patrones de siempre, todos en una sesión.
+- Sigue diciendo "listo" sin correr.
+
+**Lo que funcionó**
+
+La tabla `listar` / `pendientes` con los números lado a lado (vio la trampa enseguida) y la
+**analogía de la lista del colegio** para el diseño de `listarPendientes`.
+
+---
 ## 2026-11-24 — Sesión 16: Clase 9 (fechas), 9.A y casi todo 9.B
 
 **Qué pasó**
